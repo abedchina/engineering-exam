@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B1220">
+<meta name="description" content="מצגת אינטראקטיבית לתלמידים: הנחיות לפרויקט הגמר 5 יח״ל עם רכיב AI. מה בונים, עבודה עם AI, השנה ונקודות הבקרה, אירוע ההערכה, ספר הפרויקט וההגנה.">
+<title>הנחיות לפרויקט הגמר | מגמת אלקטרוניקה ומחשבים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Heebo:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body data-home="hackathon.html">
+
+<!-- 1 -->
+<section class="slide dark" data-title="הנחיות לפרויקט הגמר">
+ <div class="inner">
+  <svg class="cover-logo rise" viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="7" fill="#16223A" stroke="#14B8A6" stroke-width="2.5"/><g stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"><path d="M17 3v6M24 3v6M31 3v6M17 39v6M24 39v6M31 39v6M3 17h6M3 24h6M3 31h6M39 17h6M39 24h6M39 31h6"/></g><path d="M26 14l-7 11h6l-3 9 8-12h-6z" fill="#F5A524"/></svg>
+  <p class="eyebrow rise" style="--i:1">לתלמידים · פרויקט גמר 5 יח״ל · כיתה י״ב · תשפ״ז</p>
+  <h1 class="title rise" style="--i:2;font-size:clamp(36px,5.2vw,78px)">בונים מערכת חכמה.<br>ומבינים כל חלק בה.</h1>
+  <p class="lead rise" style="--i:3;max-width:800px">כל מה שצריך לדעת על פרויקט הגמר: מה בונים, איך עובדים עם AI, מה קורה בכל שלב בשנה, מה מגישים ואיך מעריכים אתכם.</p>
+  <div class="team rise" style="--i:4"><span><b>הצוות:</b> מיחלייה עבד אלמגיד · יוחנן רושו · אירינה אוצ׳טל</span><span><b>מפמ״ר:</b> שלומי אחנין</span></div>
+ </div>
+</section>
+
+<!-- 2 -->
+<section class="slide light" data-title="תיאור הפרויקט">
+ <div class="inner">
+  <p class="eyebrow rise">תיאור קצר של הפרויקט</p>
+  <h2 class="title rise" style="--i:1">אתם בונים מכלול: מערכת שבה AI משפיע על החלטה</h2>
+  <div class="grid2">
+   <div class="card rise" style="--i:2"><h3>מה אתם עושים</h3><ul><li>מגדירים צורך ומתכננים את המערכת ואת זרימת הנתונים</li><li>בונים ובודקים כל רכיב, ומתעדים מדידות</li><li>משלבים מודל AI וקובעים איך הבקר פועל לפי התוצאה שלו</li><li>בודקים מצב תקין, מצב קצה ומצב כשל</li><li>עוברים 3 נקודות בקרה, ובהן אירוע הערכה של תקלה ושיפור</li></ul></div>
+   <div class="card rise" style="--i:3;border-top-color:var(--amber)"><h3>מה מגישים בסוף</h3><ul><li><b>דגם עובד</b> של המערכת המלאה</li><li><b>ספר פרויקט</b> עם יומן עבודה כפול ונספח AI</li><li><b>הגנה</b> שבה אתם מסבירים כל חלק בעצמכם, מציעים שינויי קוד ומדגימים מדידה</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 3 -->
+<section class="slide dark" data-title="המכלול">
+ <div class="inner">
+  <p class="eyebrow rise">המכלול · לחצו על כל חלק</p>
+  <h2 class="title rise" style="--i:1">ארבעה חלקים בשרשרת אחת</h2>
+  <div class="flow rise" style="--i:2">
+   <button type="button" data-target="chain" data-info="<b>חישה:</b> חיישנים או מצלמה שאוספים נתונים מהעולם. בודקים שהנתונים תקינים לפני שמעבירים אותם הלאה.<br><b>בדגם:</b> מצלמה שמצלמת את היד.">חישה<small>חיישנים, מצלמה</small></button><i>←</i>
+   <button type="button" class="ai" data-target="chain" data-info="<b>רכיב AI:</b> מודל שמסווג, מזהה או חוזה, ומחזיר תוצאה ורמת ביטחון. אפשר מודל קטן על הבקר (TinyML) או מודל במחשב חיצוני.<br><b>בדגם:</b> מודל YOLO שהתלמידים אימנו מזהה 4 תנועות יד.">רכיב AI<small>סיווג, זיהוי, חיזוי</small></button><i>←</i>
+   <button type="button" data-target="chain" data-info="<b>בקר:</b> מקבל את התוצאה ומחליט. <b>אתם</b> קובעים את סף הביטחון ומה קורה כשהזיהוי לא ודאי.<br><b>בדגם:</b> ESP32 שפועל רק כשהזיהוי יציב, ועוצר כשהקשר נופל.">בקר<small>החלטה ובקרה</small></button><i>←</i>
+   <button type="button" data-target="chain" data-info="<b>מפעיל:</b> מה שקורה בעולם הפיזי: מנוע, ממסר, תצוגה, זמזם.<br><b>בדגם:</b> שני מנועים דרך גשר H, לדים וזמזם בנסיעה לאחור.">מפעיל<small>מנוע, ממסר, תצוגה</small></button>
+  </div>
+  <div class="reveal rise" id="chain" style="--i:3;font-size:1.05em"></div>
+  <p class="rise" style="--i:4;color:var(--mist)"><b style="color:#fff">דוגמאות לפרויקטים:</b> מיון בקבוקי פלסטיק וזכוכית, רובוט בתנועות ידיים, חניה חכמה, התרעה על נמנום נהג.</p>
+ </div>
+</section>
+
+<!-- 4 -->
+<section class="slide light" data-title="מודל I">
+ <div class="inner">
+  <p class="eyebrow rise">מודל I · לחצו על כל חלק</p>
+  <h2 class="title rise" style="--i:1">הידע שלכם בנוי כמו האות I</h2>
+  <div class="grid2" style="align-items:center">
+   <div class="imodel rise" style="--i:2">
+    <div class="top">
+     <button class="ib k-B" type="button" data-target="imi" data-info="<b>B · ידע ייחודי עם AI:</b> מודל שאימנתם בעצמכם, ושימוש מבוקר ומתועד בכלי AI לקוד ולדיבוג.<br><b>בדגם:</b> מודל זיהוי תנועות ידיים שהתלמידים אימנו."><b>B</b><span>ידע ייחודי עם AI</span></button>
+     <button class="ib k-C" type="button" data-target="imi" data-info="<b>C · ידע מחוץ לתחום:</b> ענן, ממשק משתמש, אפליקציה, ניהול פרויקט, פיזיקה ועיצוב.<br><b>בדגם:</b> שרת בענן, לוח בקרה באינטרנט וניהול הקוד ב־GitHub."><b>C</b><span>ידע מחוץ לתחום</span></button>
+    </div>
+    <div class="stem">
+     <button class="ib k-A" type="button" data-target="imi" data-info="<b>A · ידע בלי AI:</b> יסודות האלקטרוניקה והתוכנה שאתם יודעים בלי עזרה: רכיבים, מעגלים, קוד ומדידה.<br><b>בדגם:</b> גשר H, חוצץ, מרחיב יציאות I²C, מיתוג בטרנזיסטור ותכנון ספק."><b>A</b><span>ידע בלי AI</span></button>
+     <button class="ib k-D" type="button" data-target="imi" data-info="<b>D · העמקה בנושא אחד:</b> בוחרים נושא אחד עד נקודת בקרה א׳, ויודעים להסביר אותו רמה אחת מתחת למה שרואים: איך זה עובד מבפנים, מה הגבולות, ואיך מדדתם.<br><b>בדגם:</b> תקשורת I²C לעומק ובקרת זרם."><b>D</b><span>העמקה</span></button>
+    </div>
+    <button class="ib k-E" type="button" data-target="imi" data-info="<b>הבסיס · אתיקה מקצועית ופתיחות:</b> בטיחות, פרטיות, קרדיט, תיעוד ושיתוף.<br><b>בדגם:</b> הרובוט עוצר לבד כשהקשר נופל, הווידאו נשאר במערכת, וניתן קרדיט לקוד פתוח."><b>בסיס</b><span>אתיקה מקצועית ופתיחות</span></button>
+   </div>
+   <div class="reveal rise" id="imi" style="--i:3;font-size:1.05em"></div>
+  </div>
+ </div>
+</section>
+
+<!-- 5 -->
+<section class="slide dark" data-title="דרישות ותנאים">
+ <div class="inner">
+  <p class="eyebrow rise">דרישות המינימום · חוזר המפמ״ר</p>
+  <h2 class="title rise" style="--i:1">מה המערכת חייבת לכלול</h2>
+  <div class="grid3">
+   <div class="dcard rise" style="--i:2"><h3>פרויקט יחיד</h3><p>בקר, רכיבי קלט ופלט, רכיבי הפעלה ושליטה, ופרוטוקול תקשורת (למשל Wi-Fi או בלוטות׳).</p></div>
+   <div class="dcard rise" style="--i:3"><h3>פרויקט זוגי</h3><p>שני פרויקטים עצמאיים שמתקשרים ביניהם, ולפחות בקר אחד מחובר לאינטרנט.</p></div>
+   <div class="dcard rise" style="--i:4;border-inline-start-color:var(--amber)"><h3>מה מצופה ב־5 יח״ל</h3><p>אב־טיפוס שנשען על צורך מוגדר, בקרת משוב ופרוטוקולים מתקדמים. מומלץ לשלב למידת מכונה: לבנות, לאמן ולהטמיע מודל.</p></div>
+  </div>
+  <div class="must rise" style="--i:5">⚠ בלי דגם עובד ובלי ספר פרויקט אי אפשר לגשת לבחינה.</div>
+ </div>
+</section>
+
+<!-- 6 -->
+<section class="slide light" data-title="עבודה עם AI">
+ <div class="inner">
+  <p class="eyebrow rise">כללי עבודה עם AI</p>
+  <h2 class="title rise" style="--i:1">AI הוא כלי עבודה, לא תחליף לידע שלכם</h2>
+  <div class="tabs rise" style="--i:2">
+   <button type="button" data-target="ruleinfo" data-info="<b>✓ מותר ורצוי:</b><br>• להיעזר ב־AI בתכנון, בכתיבת קוד, בתיקון שגיאות ובסימולציה.<br>• לבקש כמה חלופות ולבחור ביניהן.<br>• לבנות ולאמן מודל AI כחלק מהמערכת.">✓ מותר</button>
+   <button type="button" data-target="ruleinfo" data-info="<b>! חובה:</b><br>• לבדוק כל תוצר AI: מול דף נתונים, בהרצה ובמדידה.<br>• לכתוב בהנחיה ל־AI את הבקר, השפה, הפינים והמגבלות.<br>• לתעד הכול ביומן AI.<br>• לתת קרדיט לספריות, לקוד פתוח ולכלי AI.">! חובה</button>
+   <button type="button" data-target="ruleinfo" data-info="<b>✗ אסור:</b><br>• להגיש קוד שאתם לא מבינים.<br>• להחליף מדידה אמיתית בתשובה של AI.<br>• להעלות לכלי AI תמונות או נתונים אישיים של אנשים בלי רשות.">✗ אסור</button>
+  </div>
+  <div class="reveal rise" id="ruleinfo" style="--i:3;font-size:1.1em;line-height:1.9"></div>
+  <p class="rise" style="--i:4;color:var(--soft)">בהגנה תסבירו כל חלק במערכת <b style="color:var(--ink)">בעצמכם</b>, בלי AI.</p>
+ </div>
+</section>
+
+<!-- 7 -->
+<section class="slide dark" data-title="יומן עבודה כפול">
+ <div class="inner">
+  <p class="eyebrow rise">לאורך כל השנה</p>
+  <h2 class="title rise" style="--i:1">יומן עבודה כפול</h2>
+  <div class="grid2">
+   <div class="dcard rise" style="--i:2"><h3>יומן עבודה הנדסי</h3><p>פגישות, מטרות ומה עשיתם בפועל בכל מפגש.</p></div>
+   <div class="dcard rise" style="--i:3;border-inline-start-color:var(--amber)"><h3>נספח AI</h3><ul><li>ההנחיות (Prompts) המרכזיות</li><li>מה ה־AI הציע, מה בדקתם, מה תיקנתם או דחיתם ולמה</li><li>אילו חלקים פיתחתם לבד ואילו בעזרת AI</li></ul></div>
+  </div>
+  <div class="quote rise" style="--i:4"><b>כשמשהו לא עובד, מודדים:</b> רב־מודד, משקף תנודות (סקופ) או נתח לוגי. משווים את המדידה לקוד ולסימולציה. המנחה יכוון אתכם, אבל לא יפתור את התקלה במקומכם.</div>
+ </div>
+</section>
+
+<!-- 8 -->
+<section class="slide dark" data-title="השנה שלכם">
+ <div class="inner">
+  <p class="eyebrow rise">השנה שלכם · לחצו על כל שלב</p>
+  <h2 class="title rise" style="--i:1">7 שלבים ו־3 נקודות בקרה</h2>
+  <div class="timeline rise" style="--i:2">
+   <button type="button" data-target="yr" data-info="<b>רעיון והצעה (ספטמבר–אוקטובר):</b> מגדירים בעיה וצורך, בודקים חלופות (גם בעזרת AI), ומגישים הצעת פרויקט לאישור."><small>ספט׳–אוק׳</small>רעיון והצעה</button>
+   <button type="button" class="cp" data-target="yr" data-info="<b>נקודת בקרה א׳ · אחרי אישור התכן:</b> מציגים תרשים מלבנים וזרימת נתונים מהחיישן אל המודל ואל הבקר, חלופות שבדקתם, אילוצים, מצבי כשל ותוכנית מדידות. בוחרים את נושא ההעמקה (D)."><small>בקרה א׳</small>תכן המערכת</button>
+   <button type="button" data-target="yr" data-info="<b>בנייה ובדיקה של כל רכיב (נובמבר–דצמבר):</b> קוראים דפי נתונים, בונים ובודקים כל רכיב בנפרד, ומתעדים לכל רכיב מאפיינים, תרשים, קוד הפעלה, מדידות ותקלות."><small>נוב׳–דצמ׳</small>בנייה ובדיקה</button>
+   <button type="button" class="cp" data-target="yr" data-info="<b>נקודת בקרה ב׳ · במהלך האינטגרציה:</b> אירוע ההערכה. המנחה נותן לכם תקלה חדשה במערכת שלכם, ואתם מאבחנים, מתקנים בעזרת AI ומוכיחים במדידה. 30 דקות."><small>בקרה ב׳</small>אירוע ההערכה</button>
+   <button type="button" data-target="yr" data-info="<b>בדיקות ומצבי קצה (ינואר–מרץ):</b> בודקים מצב תקין, מצב קצה ומצב כשל. מוודאים שהמערכת עוברת למצב בטוח כשמשהו לא ודאי."><small>ינו׳–מרץ</small>בדיקות</button>
+   <button type="button" class="cp" data-target="yr" data-info="<b>נקודת בקרה ג׳ · לפני ההגנה:</b> בדיקת מצב קצה חדש, תיקון שמבוסס על נתוני אמת, הצגת התיעוד והגנה על הקוד בלי להיעזר ב־AI."><small>בקרה ג׳</small>חזרה גנרלית</button>
+   <button type="button" data-target="yr" data-info="<b>הגשה, הגנה ותערוכה (אפריל–יוני):</b> מגישים את ספר הפרויקט, ניגשים להגנה עם דגם עובד ומציגים בתערוכת הפרויקטים."><small>אפר׳–יוני</small>הגנה ותערוכה</button>
+  </div>
+  <div class="reveal rise" id="yr" style="--i:3;font-size:1.05em"></div>
+  <p class="foot rise" style="--i:4">בכל נקודת בקרה בודקים כל תלמיד בנפרד, גם בפרויקט זוגי. נקודות הבקרה לא משנות את הציון הרשמי. התאריכים המדויקים יימסרו בכיתה.</p>
+ </div>
+</section>
+
+<!-- 9 -->
+<section class="slide light" data-title="אירוע ההערכה">
+ <div class="inner">
+  <p class="eyebrow rise">נקודת בקרה ב׳ · לחצו על כל שלב</p>
+  <h2 class="title rise" style="--i:1">אירוע ההערכה: תקלה ושיפור ב־30 דקות</h2>
+  <div class="tabs rise" style="--i:2">
+   <button type="button" data-target="evt" data-info="<b>דקות 0–5 · זיהוי הבעיה:</b> המנחה מציג כשל במערכת שלכם, למשל סיווג לא ודאי, שיבוש נתונים, או קוד שה־AI החזיר ב־C במקום MicroPython. מנסחים השערה: מה גרם לכשל ולמה.">0–5 · זיהוי</button>
+   <button type="button" data-target="evt" data-info="<b>דקות 5–15 · תכנון ותיקון:</b> מבקשים מה־AI חלופות, עם הבקר, השפה, הפינים והמגבלות. בוחרים חלופה ומתקנים בקוד, בסף ההחלטה או בזרימת הנתונים.">5–15 · תיקון</button>
+   <button type="button" data-target="evt" data-info="<b>דקות 15–25 · בדיקות:</b> בודקים 3 מצבים: תקין, קצה וכשל. משווים לוגים ומדידות לפני ואחרי, ומוודאים שלא תהיה הפעלה שגויה.">15–25 · בדיקות</button>
+   <button type="button" data-target="evt" data-info="<b>דקות 25–30 · הסבר:</b> מסבירים בעצמכם את מקור התקלה, מה בדיוק ה־AI עשה, למה בחרתם בתיקון הזה, מה מדדתם ומה המגבלות.">25–30 · הסבר</button>
+  </div>
+  <div class="reveal rise" id="evt" style="--i:3;font-size:1.05em"></div>
+  <div class="grid2">
+   <div class="card rise" style="--i:4"><h3>מה מגישים בסוף</h3><p>קוד לפני ואחרי · לוגים ומדידות · ההנחיות המרכזיות ל־AI · טבלת 3 בדיקות · הסבר קצר לבחירה</p></div>
+   <div class="card rise" style="--i:5;border-top-color:var(--amber)"><h3>איך מתכוננים</h3><p>הכירו את זרימת הנתונים במערכת, שמרו לוגים, תרגלו הנחיות מדויקות ל־AI, ודעו להפעיל את מכשירי המדידה.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- 10 -->
+<section class="slide dark" data-title="נסו בעצמכם: אתגר לדוגמה">
+ <div class="inner">
+  <p class="eyebrow rise">נסו בעצמכם · אתגר לדוגמה</p>
+  <h2 class="title rise" style="--i:1">המודל לא בטוח. מה הבקר עושה?</h2>
+  <div class="sim rise" style="--i:2">
+   <div>
+    <p style="color:var(--mist)">מערכת למיון בקבוקים: המודל מחזיר "plastic" עם רמת ביטחון. הזיזו את המחוונים וראו מה הבקר מחליט.</p>
+    <label for="conf">רמת הביטחון של המודל: <span class="val" id="confV">0.52</span></label>
+    <input id="conf" type="range" min="0" max="1" step="0.01" value="0.52">
+    <label for="thr">סף ההפעלה שאתם קובעים: <span class="val" id="thrV">0.70</span></label>
+    <input id="thr" type="range" min="0.3" max="0.95" step="0.05" value="0.70">
+    <pre style="direction:ltr;text-align:left;background:#070C16;border:1px solid var(--steel);border-radius:12px;padding:12px;font-size:.85em;color:#BFD0E0;overflow-x:auto;margin-top:12px" id="code"></pre>
+   </div>
+   <div class="decision" id="dec"><div class="big" id="decT"></div><p id="decP" style="margin-top:6px"></p></div>
+  </div>
+  <p class="foot rise" style="--i:3">באירוע ההערכה תצטרכו להראות קוד ומדידה, ולבדוק שהתיקון מונע מיון שגוי.</p>
+ </div>
+</section>
+
+<!-- 11 -->
+<section class="slide light" data-title="ספר הפרויקט">
+ <div class="inner">
+  <p class="eyebrow rise">ספר הפרויקט · תנאי לבחינה</p>
+  <h2 class="title rise" style="--i:1">הסיפור ההנדסי של הפרויקט</h2>
+  <div class="grid2" style="grid-template-columns:repeat(4,1fr)">
+   <div class="card rise" style="--i:2"><h3>גוף הספר</h3><ul><li>שער והצהרת התלמיד</li><li>תוכן עניינים אוטומטי</li><li>תקציר</li><li>תרשים מלבנים</li><li>תרשים חשמלי והסברים</li><li>תוכנה מתועדת</li><li>רפלקציה, ביבליוגרפיה ונספחים</li></ul></div>
+   <div class="card rise" style="--i:3"><h3>תיעוד לכל רכיב</h3><ul><li>מאפיינים טכניים</li><li>איך הוא עובד ומה תפקידו</li><li>תרשים חשמלי</li><li>קוד שמפעיל אותו</li><li>מדידות מול התיאוריה</li><li>תקלות ותמונות</li></ul></div>
+   <div class="card rise" style="--i:4;border-top-color:var(--amber)"><h3>יומן ונספח AI</h3><ul><li>יומן עבודה שוטף</li><li>הנחיות מרכזיות ל־AI</li><li>ניתוח ביקורתי</li><li>מה פותח לבד ומה בעזרת AI</li></ul></div>
+   <div class="card rise" style="--i:5;border-top-color:var(--steel)"><h3>עיצוב</h3><ul><li>גופנים וגדלים אחידים</li><li>כותרות ברורות</li><li>יישור לימין; קוד ואנגלית לשמאל</li><li>פיסוק נכון</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- 12 -->
+<section class="slide dark" data-title="יום ההגנה">
+ <div class="inner">
+  <p class="eyebrow rise">יום ההגנה · כ־30 דקות · לחצו על כל שלב</p>
+  <h2 class="title rise" style="--i:1">5 שלבים עם הבוחן</h2>
+  <div class="tabs rise" style="--i:2">
+   <button type="button" data-target="def" data-info="<b>1. הצגת הפרויקט:</b> מה הבעיה, מה המערכת עושה, תרשים המלבנים וזרימת המידע, ואיזה ידע מחוץ לאלקטרוניקה היה דרוש.">1. הצגה</button>
+   <button type="button" data-target="def" data-info="<b>2. ידע הנדסי והעמקה:</b> איך פועלים הרכיבים, למה בחרתם את המתחים והחיבורים, איך עובר המידע, ושאלות עומק על נושא ההעמקה שלכם.">2. ידע והעמקה</button>
+   <button type="button" data-target="def" data-info="<b>3. קוד ותוכנה:</b> הסבר של פונקציות, ההפרדה בין דרייברים ללוגיקה, והצעה לשינוי בקוד לפי דרישה חדשה של הבוחן (בלי לממש בפועל).">3. קוד</button>
+   <button type="button" data-target="def" data-info="<b>4. הפעלה ובדיקות:</b> הפעלת הדגם, מדידה בפועל והסבר שיטתי איך מאתרים תקלה.">4. הפעלה</button>
+   <button type="button" data-target="def" data-info="<b>5. כשירות AI, אתיקה ופתיחות:</b> איפה השתמשתם ב־AI ומה עשיתם בעצמכם, הצעת AI שלא התאימה ואיך זיהיתם, בטיחות, פרטיות וקרדיט.">5. AI ואתיקה</button>
+  </div>
+  <div class="reveal rise" id="def" style="--i:3;font-size:1.05em"></div>
+  <div class="quote rise" style="--i:4"><b>מה מביאים:</b> דגם עובד, ספר פרויקט, מחשב עם הקוד העדכני, ונתוני מדידות ולוגים.</div>
+ </div>
+</section>
+
+<!-- 13 -->
+<section class="slide light" data-title="איך מעריכים אתכם">
+ <div class="inner">
+  <p class="eyebrow rise">איך מעריכים אתכם</p>
+  <h2 class="title rise" style="--i:1">100 נקודות לפי מחוון המפמ״ר</h2>
+  <div class="bars rise" style="--i:2">
+   <div class="bar"><b>מורכבות ותקינות פעולה</b><span class="track"><i style="width:25%"></i></span><span class="v">25</span></div>
+   <div class="bar"><b>בקיאות בנושא הפרויקט</b><span class="track"><i style="width:60%"></i></span><span class="v">60</span></div>
+   <div class="bar"><b>איכות ספר הפרויקט</b><span class="track"><i style="width:15%"></i></span><span class="v">15</span></div>
+  </div>
+  <p class="rise" style="--i:3;color:var(--soft)">לכל קריטריון יש 4 רמות ביצוע. במחוון רואים בדיוק מה נדרש בכל רמה וכמה נקודות היא שווה.</p>
+  <div class="row rise" style="--i:4"><a class="btn navy" href="rubric.html">למחוון המלא ←</a></div>
+ </div>
+</section>
+
+<!-- 14 -->
+<section class="slide dark" data-title="חדש במגמה: ESP32-P4">
+ <div class="inner">
+  <p class="eyebrow rise" style="color:var(--amber)">חדש במגמה · תוספת לפרויקט</p>
+  <h2 class="title rise" style="--i:1">לוח ESP32-P4 שהתלמיד בונה בעצמו</h2>
+  <div class="grid2">
+   <div class="dcard rise" style="--i:2;border-inline-start-color:var(--amber)"><h3>מה זה</h3><p>לוח עם בקר ESP32-P4 ומסך, שהתלמיד מתכנן ובונה בעצמו (PCB). זו תוכנית חדשה של המפמ״ר שנמצאת עדיין בפיתוח.</p></div>
+   <div class="dcard rise" style="--i:3"><h3>איך זה מתחבר לפרויקט</h3><p>בדגם, הלוח מציג וידאו חי ואת מצב הרובוט, ומשמש גם כג׳ויסטיק לשליטה ידנית. אנחנו מציגים אותו כתוספת לפרויקט, כדי להראות מה עתיד להיכנס למגמה.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- 15 -->
+<section class="slide light" data-title="רשימת בדיקה">
+ <div class="inner">
+  <p class="eyebrow rise">רשימת בדיקה לפני ההגשה · סמנו מה מוכן</p>
+  <h2 class="title rise" style="--i:1;font-size:clamp(24px,2.8vw,42px)">אני מוכן להגנה?</h2>
+  <div class="row rise" style="--i:2;align-items:center"><div class="meter" style="flex:1"><i id="ckBar" style="width:0"></i></div><b id="ckTxt" style="direction:ltr">0/14</b></div>
+  <div class="checklist rise" style="--i:3" id="ck"></div>
+ </div>
+</section>
+
+<!-- 16 -->
+<section class="slide teal" data-title="סיכום">
+ <div class="inner" style="text-align:center;align-items:center">
+  <p class="rise" style="font-weight:800">בהצלחה!</p>
+  <h2 class="title rise" style="--i:1;max-width:900px">אתם בונים, בודקים ומחליטים. ה־AI עוזר.</h2>
+  <p class="lead rise" style="--i:2;max-width:760px">דגם עובד · ספר פרויקט עם נספח AI · 3 נקודות בקרה · הגנה שבה אתם מסבירים הכול בעצמכם.</p>
+  <div class="row rise" style="--i:3;justify-content:center"><a class="btn navy" href="guidelines.html">גרסה להדפסה</a><a class="btn ghost" href="rubric.html">המחוון</a><a class="btn ghost" href="hackathon.html">כל התוצרים</a></div>
+ </div>
+</section>
+
+<script>
+'use strict';
+// סימולציית סף הביטחון
+const conf=document.getElementById('conf'),thr=document.getElementById('thr');
+function sim(){const c=+conf.value,t=+thr.value;
+ document.getElementById('confV').textContent=c.toFixed(2);document.getElementById('thrV').textContent=t.toFixed(2);
+ const go=c>=t,dec=document.getElementById('dec');dec.className='decision '+(go?'go':'hold');
+ document.getElementById('decT').textContent=go?'ממיין: פלסטיק':'עוצר: מצב בטוח';
+ document.getElementById('decP').textContent=go?`הביטחון (${c.toFixed(2)}) גבוה מהסף (${t.toFixed(2)}), ולכן הבקר מפעיל את המיון.`:`הביטחון (${c.toFixed(2)}) נמוך מהסף (${t.toFixed(2)}). הבקר לא ממיין, מצלם שוב ומחכה לזיהוי יציב.`;
+ document.getElementById('code').textContent=`label, conf = model.predict(frame)   # ${c.toFixed(2)}\nTHRESHOLD = ${t.toFixed(2)}\n\nif conf >= THRESHOLD:\n    sort(label)${go?'          # ← runs now':''}\nelse:\n    hold_safe()${go?'':'          # ← runs now'}\n    retry_capture()`;}
+conf.addEventListener('input',sim);thr.addEventListener('input',sim);sim();
+// רשימת בדיקה
+const ITEMS=['הדגם עובד מההתחלה ועד הסוף','החיווט מסודר והמערכת בתוך מארז','תרשים מלבנים ותרשים חשמלי מעודכנים','תיעוד מלא לכל רכיב בנפרד','טבלת מדידות עם הסבר','הקוד מתועד, ודרייברים נפרדים מהלוגיקה','אני יודע להסביר כל פונקציה בלי AI','אני יודע להסביר את נושא ההעמקה לעומק','יומן עבודה מעודכן','נספח AI: הנחיות, ניתוח ביקורתי ושקיפות','בדקתי מצב תקין, מצב קצה ומצב כשל','המערכת עוברת למצב בטוח כשיש בעיה','קרדיט לספריות, לקוד פתוח ולכלי AI','תוכן עניינים אוטומטי ועיצוב אחיד בספר'];
+const CK='guidelines_check_v1';let done=[];try{done=JSON.parse(localStorage.getItem(CK))||[];}catch(e){}
+function ck(){document.getElementById('ck').innerHTML=ITEMS.map((t,i)=>`<label class="${done.includes(i)?'done':''}"><input type="checkbox" data-i="${i}" ${done.includes(i)?'checked':''}>${t}</label>`).join('');
+ document.querySelectorAll('#ck input').forEach(b=>b.addEventListener('change',()=>{const i=+b.dataset.i;done=b.checked?[...new Set([...done,i])]:done.filter(x=>x!==i);try{localStorage.setItem(CK,JSON.stringify(done));}catch(e){}ck();}));
+ document.getElementById('ckBar').style.width=done.length/ITEMS.length*100+'%';document.getElementById('ckTxt').textContent=`${done.length}/${ITEMS.length}`;}
+ck();
+</script>
+<script src="deck.js"></script>
+</body>
+</html>

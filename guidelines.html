@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B1220">
+<meta name="description" content="הנחיות לפרויקט הגמר לתלמידים: מערכת חכמה עם רכיב AI, 5 יח״ל, כיתה י״ב. מגמת אלקטרוניקה ומחשבים.">
+<title>הנחיות לפרויקט הגמר | מגמת אלקטרוניקה ומחשבים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Heebo:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1220;--navy2:#16223A;--steel:#2B3A55;--paper:#F4F6FA;--ink:#14213D;--soft:#4A5568;--sub:#6B7689;--mist:#BFD0E0;--teal:#14B8A6;--teal-d:#0F766E;--teal-soft:#E3F6F3;--amber:#F5A524;--amber-soft:#FFF5E1;--red:#B4424E;--red-soft:#FDEEF0;--line:#E1E7EF;--shadow:0 12px 34px rgba(20,33,61,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Assistant,Arial,sans-serif;font-size:17px;line-height:1.75}
+h1,h2,h3{font-family:Heebo,Arial,sans-serif;margin:0 0 10px;line-height:1.3}
+h1{font-size:clamp(30px,4vw,46px);font-weight:900}h2{font-size:26px;font-weight:800}h3{font-size:19px;font-weight:700}
+p{margin:0 0 12px}a{color:var(--teal-d)}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.header{background:var(--navy);color:#fff;padding:14px clamp(16px,4vw,60px);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.header b{font-family:Heebo,Arial,sans-serif;font-size:19px;font-weight:900}
+.header nav{display:flex;gap:8px;flex-wrap:wrap}
+.header nav a{color:var(--mist);text-decoration:none;font-size:13.5px;border:1px solid var(--steel);padding:6px 12px;border-radius:30px}
+.header nav a:hover{color:#fff;border-color:var(--teal)}
+.wrap{max-width:1000px;margin:0 auto;padding:26px 16px 70px}
+.hero{background:var(--navy);color:#fff;border-radius:24px;padding:34px clamp(20px,4vw,40px);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;left:-120px;bottom:-170px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(20,184,166,.25),transparent 65%)}
+.hero>*{position:relative}
+.eyebrow{color:var(--teal);font-weight:800;font-size:14px;margin-bottom:8px}
+.hero p{color:var(--mist);font-size:17px;max-width:720px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{background:var(--navy2);border:1px solid var(--steel);color:#fff;border-radius:30px;padding:6px 14px;font-size:14px;font-weight:700}
+.toc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin:18px 0;box-shadow:var(--shadow)}
+.toc ol{margin:6px 0 0;padding-inline-start:22px;columns:2;column-gap:30px}
+.toc li{margin-bottom:4px}.toc a{text-decoration:none;font-weight:700}
+.sec{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px clamp(18px,3.5vw,34px);margin-top:18px;box-shadow:var(--shadow)}
+.sec h2{display:flex;align-items:center;gap:12px}
+.num{width:38px;height:38px;flex:none;border-radius:11px;background:var(--teal);color:var(--navy);display:grid;place-items:center;font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:18px}
+.lead{color:var(--soft);font-size:16.5px}
+ul.clean{padding-inline-start:22px;margin:0 0 12px}ul.clean li{margin-bottom:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.box{border-radius:15px;padding:15px 17px;background:var(--paper)}
+.box h3{font-size:17px;margin-bottom:6px}
+.box.ok{background:var(--teal-soft)}.box.ok h3{color:var(--teal-d)}
+.box.warn{background:var(--amber-soft)}.box.warn h3{color:#8A5A0B}
+.box.no{background:var(--red-soft)}.box.no h3{color:var(--red)}
+.box ul{margin:0;padding-inline-start:20px}.box li{margin-bottom:4px;font-size:15.5px}
+.must{border:2px solid var(--red);background:var(--red-soft);color:#6d1f28;border-radius:14px;padding:13px 16px;font-weight:700;margin-top:12px}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}
+.flow div{flex:1;min-width:120px;border-radius:13px;padding:12px;text-align:center;background:var(--paper);font-weight:700;font-size:15px}
+.flow div small{display:block;font-weight:400;color:var(--sub);font-size:13px}
+.flow .ai{background:var(--teal);color:var(--navy)}.flow .ai small{color:var(--navy)}
+.flow i{align-self:center;font-style:normal;color:var(--teal-d);font-weight:900}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:10px 0}
+th{background:var(--navy);color:#fff;text-align:right;padding:10px 13px;font-weight:700}
+td{padding:10px 13px;border-top:1px solid var(--line);vertical-align:top}
+tr.grp td{background:var(--paper);font-weight:800}
+td.pts{font-family:Heebo,Arial,sans-serif;font-weight:800;text-align:center;white-space:nowrap}
+.ik{display:inline-grid;place-items:center;min-width:30px;height:30px;padding:0 7px;border-radius:9px;font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:14px}
+.k-B{background:var(--teal);color:var(--navy)}.k-C{background:var(--amber);color:var(--navy)}.k-A{background:var(--steel);color:#fff}.k-D{background:#fff;color:var(--teal-d);border:2px solid var(--teal)}.k-E{background:var(--navy2);color:#fff;font-size:12px}
+.timeline{position:relative;margin:8px 0 0;padding-inline-start:26px}
+.timeline:before{content:"";position:absolute;inset-inline-start:9px;top:6px;bottom:6px;width:3px;background:var(--line);border-radius:3px}
+.step{position:relative;margin-bottom:16px}
+.step:before{content:"";position:absolute;inset-inline-start:-23px;top:7px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--steel)}
+.step.cp:before{background:var(--amber);border-color:var(--amber)}
+.step .when{font-size:13.5px;font-weight:800;color:var(--teal-d)}
+.step.cp .when{color:#8A5A0B}
+.step h3{margin:2px 0 4px}
+.step p{font-size:15.5px;color:var(--soft);margin:0}
+.event{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.event div{background:var(--navy);color:#fff;border-radius:14px;padding:13px}
+.event b{display:block;color:var(--teal);font-family:Heebo,Arial,sans-serif;font-size:15px}
+.event span{font-size:14.5px;color:var(--mist);line-height:1.6;display:block;margin-top:4px}
+.quote{border-inline-start:4px solid var(--amber);background:var(--amber-soft);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:16px}
+.check{list-style:none;padding:0;margin:0;columns:2;column-gap:28px}
+.check li{break-inside:avoid;padding:6px 0 6px;display:flex;gap:9px;align-items:flex-start;font-size:15.5px}
+.check li:before{content:"☐";color:var(--teal-d);font-size:19px;line-height:1.2}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;border-radius:11px;padding:10px 18px;font-weight:800;text-decoration:none;font-size:15px;border:0;cursor:pointer;font-family:inherit}
+.btn.light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.footer{text-align:center;color:var(--sub);font-size:13px;margin-top:26px}
+.credit{position:fixed;bottom:10px;left:10px;z-index:25;background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:5px 11px;border-radius:20px;opacity:.88;direction:ltr}
+@media(max-width:760px){body{font-size:16px}.grid2,.grid3{grid-template-columns:1fr}.event{grid-template-columns:1fr 1fr}.toc ol,.check{columns:1}.header nav{display:none}}
+@media(max-width:440px){.event{grid-template-columns:1fr}}
+@media print{body{background:#fff;font-size:12.5px}.header nav,.actions,.credit,.toc{display:none!important}.sec,.hero{box-shadow:none;break-inside:avoid-page}.hero{background:#fff;color:#000;border:2px solid #000}.hero p{color:#333}.chip{background:#fff;color:#000}th{background:#e9edf2!important;color:#000}.event div{background:#fff;color:#000;border:1px solid #999}.event span{color:#333}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header class="header"><b>מגמת אלקטרוניקה ומחשבים</b><nav><a href="hackathon.html">כל התוצרים</a><a href="megama.html">מחוון ההערכה</a></nav></header>
+<div class="wrap">
+
+<section class="hero">
+ <div class="eyebrow">● הנחיות לתלמידים · פרויקט גמר 5 יח״ל · כיתה י״ב · תשפ״ז</div>
+ <h1>בונים מערכת חכמה.<br>ומבינים כל חלק בה.</h1>
+ <p>במסמך הזה כל מה שצריך לדעת על פרויקט הגמר: מה בונים, איך עובדים עם AI, מה קורה בכל שלב בשנה, מה מגישים ואיך מעריכים אתכם. שמרו אותו וחזרו אליו לאורך השנה.</p>
+ <div class="chips"><span class="chip">דגם עובד</span><span class="chip">ספר פרויקט + נספח AI</span><span class="chip">3 נקודות בקרה</span><span class="chip">הגנה</span></div>
+</section>
+
+<nav class="toc" aria-label="תוכן העניינים"><b>תוכן העניינים</b><ol>
+ <li><a href="#build">מה אתם בונים</a></li><li><a href="#imodel">מודל I: מה תראו בפרויקט</a></li><li><a href="#ai">כללי עבודה עם AI</a></li><li><a href="#year">השנה שלכם: שלבים ונקודות בקרה</a></li><li><a href="#event">אירוע ההערכה: תקלה ושיפור</a></li><li><a href="#book">ספר הפרויקט</a></li><li><a href="#defense">יום ההגנה</a></li><li><a href="#grade">איך מעריכים אתכם</a></li><li><a href="#checklist">רשימת בדיקה לפני ההגשה</a></li>
+</ol></nav>
+
+<section class="sec" id="build">
+ <h2><span class="num">1</span>מה אתם בונים</h2>
+ <p class="lead">אתם בונים <b>מכלול</b>: מערכת אלקטרונית שלמה, שבה רכיב AI משפיע על החלטה או על פעולה. ה-AI לא עומד לבד. הוא חלק משרשרת שאתם מתכננים, בונים ובודקים.</p>
+ <div class="flow"><div>חישה<small>חיישנים, מצלמה</small></div><i>←</i><div class="ai">רכיב AI<small>סיווג, זיהוי או חיזוי</small></div><i>←</i><div>בקר<small>החלטה ובקרה</small></div><i>←</i><div>מפעיל<small>מנוע, ממסר, תצוגה</small></div></div>
+ <p><b>דוגמאות:</b> מיון בקבוקי פלסטיק וזכוכית במצלמה, רובוט שנוסע לפי תנועות ידיים, חניה חכמה שמזהה רכב או אוטובוס, התרעה על נמנום נהג.</p>
+ <div class="grid2">
+  <div class="box"><h3>דרישות המינימום (חוזר המפמ״ר)</h3><ul>
+   <li><b>פרויקט יחיד:</b> בקר, רכיבי קלט ופלט, רכיבי הפעלה ושליטה, ופרוטוקול תקשורת (למשל Wi-Fi או בלוטות׳).</li>
+   <li><b>פרויקט זוגי:</b> שני פרויקטים עצמאיים שמתקשרים ביניהם, ולפחות בקר אחד מחובר לאינטרנט.</li>
+  </ul></div>
+  <div class="box ok"><h3>מה מצופה ב־5 יח״ל</h3><ul>
+   <li>אב־טיפוס שנשען על צורך או בעיה מוגדרת.</li>
+   <li>רכיבי קלט ופלט, בקרת משוב ופרוטוקולים מתקדמים.</li>
+   <li>מומלץ לשלב למידת מכונה: בנייה, אימון והטמעה של מודל. אפשר להריץ מודל קטן על הבקר (TinyML), או מודל גדול במחשב חיצוני שמתקשר עם הבקר.</li>
+  </ul></div>
+ </div>
+ <div class="must">⚠ בלי דגם עובד ובלי ספר פרויקט אי אפשר לגשת לבחינה.</div>
+</section>
+
+<section class="sec" id="imodel">
+ <h2><span class="num">2</span>מודל I: מה תראו בפרויקט</h2>
+ <p class="lead">הידע שלכם בנוי כמו האות I. בכל פרויקט צריך לראות את כל החלקים.</p>
+ <div class="tw"><table>
+  <tr><th style="width:90px">חלק</th><th>מה זה</th><th>איך זה נראה בפרויקט (דוגמה: רובוט תנועות ידיים)</th></tr>
+  <tr><td><span class="ik k-A">A</span></td><td><b>ידע בלי AI:</b> יסודות האלקטרוניקה והתוכנה</td><td>גשר H לבקרת מנועים, הרחבת יציאות ב־I²C, מיתוג בטרנזיסטור, תכנון ספק, מדידה במעבדה</td></tr>
+  <tr><td><span class="ik k-B">B</span></td><td><b>ידע ייחודי עם AI</b></td><td>מודל זיהוי שאימנתם בעצמכם, ושימוש מבוקר ומתועד בכלי AI לקוד ולדיבוג</td></tr>
+  <tr><td><span class="ik k-C">C</span></td><td><b>ידע מחוץ לתחום</b></td><td>שרת בענן, ממשק משתמש, אפליקציה, ניהול הקוד ב־GitHub</td></tr>
+  <tr><td><span class="ik k-D">D</span></td><td><b>העמקה בנושא אחד</b> שאתם בוחרים</td><td>תקשורת I²C לעומק: כתובות, מסגרת, יציאות ודחיפת זרם</td></tr>
+  <tr><td><span class="ik k-E">בסיס</span></td><td><b>אתיקה מקצועית ופתיחות</b></td><td>הרובוט עוצר כשהקשר נופל, הווידאו נשאר אצלנו, קרדיט לקוד פתוח, תיעוד ושיתוף</td></tr>
+ </table></div>
+ <p><b>נושא ההעמקה (D):</b> בחרו נושא אחד מהפרויקט שלכם עד נקודת בקרה א׳, ודעו להסביר אותו "רמה אחת מתחת" למה שרואים: איך זה עובד מבפנים, מה הגבולות שלו, ואיך מדדתם אותו.</p>
+</section>
+
+<section class="sec" id="ai">
+ <h2><span class="num">3</span>כללי עבודה עם AI</h2>
+ <p class="lead">AI הוא כלי עבודה, לא תחליף לידע שלכם. בבחינה תסבירו כל חלק במערכת <b>בעצמכם</b>.</p>
+ <div class="grid3">
+  <div class="box ok"><h3>✓ מותר ורצוי</h3><ul><li>להיעזר ב־AI בתכנון, בכתיבת קוד, בתיקון שגיאות ובסימולציה.</li><li>לבקש מה־AI כמה חלופות ולבחור ביניהן.</li><li>לבנות ולאמן מודל AI כחלק מהמערכת.</li></ul></div>
+  <div class="box warn"><h3>! חובה</h3><ul><li>לבדוק כל תוצר AI: מול דף נתונים, בהרצה ובמדידה.</li><li>לכתוב בהנחיה ל־AI את הבקר, השפה, הפינים והמגבלות.</li><li>לתעד הכול ביומן AI.</li><li>לציין קרדיט לספריות, לקוד פתוח ולכלי AI.</li></ul></div>
+  <div class="box no"><h3>✗ אסור</h3><ul><li>להגיש קוד שאתם לא מבינים.</li><li>להחליף מדידה אמיתית בתשובה של AI.</li><li>להעלות לכלי AI תמונות או נתונים אישיים של אנשים בלי רשות.</li></ul></div>
+ </div>
+ <h3 style="margin-top:18px">יומן עבודה כפול</h3>
+ <p>לאורך כל השנה מנהלים שני יומנים:</p>
+ <ul class="clean">
+  <li><b>יומן עבודה הנדסי:</b> פגישות, מטרות ומה עשיתם בפועל בכל מפגש.</li>
+  <li><b>נספח AI:</b> ההנחיות (Prompts) המרכזיות, מה ה־AI הציע, מה בדקתם, מה תיקנתם או דחיתם ולמה, ואילו חלקים פיתחתם לבד ואילו בעזרת AI.</li>
+ </ul>
+ <p><b>איתור תקלות:</b> כשמשהו לא עובד, מודדים: רב־מודד, משקף תנודות (סקופ) או נתח לוגי. משווים את המדידה לקוד ולסימולציה. המנחה יכוון אתכם, אבל לא יפתור את התקלה במקומכם.</p>
+</section>
+
+<section class="sec" id="year">
+ <h2><span class="num">4</span>השנה שלכם: שלבים ונקודות בקרה</h2>
+ <p class="lead">בשנה יש 3 נקודות בקרה (בכתום). בכל נקודה בודקים כל תלמיד בנפרד, גם בפרויקט זוגי. נקודות הבקרה עוזרות לכם להתכונן, והן לא משנות את מחוון הציון הרשמי. התאריכים המדויקים יימסרו בכיתה.</p>
+ <div class="timeline">
+  <div class="step"><div class="when">ספטמבר–אוקטובר</div><h3>רעיון והצעה</h3><p>מגדירים בעיה וצורך, בודקים חלופות (גם בעזרת AI), ומגישים הצעת פרויקט לאישור.</p></div>
+  <div class="step cp"><div class="when">נקודת בקרה א׳ · אחרי אישור התכן</div><h3>תכן המערכת</h3><p>מציגים תרשים מלבנים וזרימת נתונים מהחיישן אל מודל ה־AI ואל הבקר, חלופות שבדקתם, אילוצים, מצבי כשל ותוכנית מדידות. בוחרים את נושא ההעמקה (D).</p></div>
+  <div class="step"><div class="when">נובמבר–דצמבר</div><h3>בנייה ובדיקה של כל רכיב</h3><p>קוראים דפי נתונים, בונים ובודקים כל רכיב בנפרד, ומתעדים לכל רכיב: מאפיינים, תרשים, קוד הפעלה, מדידות ותקלות.</p></div>
+  <div class="step cp"><div class="when">נקודת בקרה ב׳ · ינואר–מרץ, במהלך האינטגרציה</div><h3>אירוע ההערכה: תקלה ושיפור</h3><p>מחברים את כל החלקים למערכת אחת. באמצע, המנחה נותן לכם תקלה חדשה במערכת שלכם (פירוט בסעיף 5).</p></div>
+  <div class="step"><div class="when">ינואר–מרץ</div><h3>בדיקות ומצבי קצה</h3><p>בודקים מצב תקין, מצב קצה ומצב כשל. מוודאים שהמערכת עוברת למצב בטוח כשמשהו לא ודאי.</p></div>
+  <div class="step cp"><div class="when">נקודת בקרה ג׳ · לפני ההגנה</div><h3>חזרה גנרלית</h3><p>בדיקת מצב קצה חדש, תיקון שמבוסס על נתוני אמת, הצגת התיעוד והגנה על הקוד בלי להיעזר ב־AI.</p></div>
+  <div class="step"><div class="when">אפריל–יוני</div><h3>הגשה, הגנה ותערוכה</h3><p>מגישים את ספר הפרויקט, ניגשים להגנה עם דגם עובד ומציגים בתערוכת הפרויקטים.</p></div>
+ </div>
+</section>
+
+<section class="sec" id="event">
+ <h2><span class="num">5</span>אירוע ההערכה: תקלה ושיפור (30 דקות)</h2>
+ <p class="lead">המטרה: להראות שאתם יודעים לאבחן תקלה שלא ראיתם קודם, לתקן אותה בעזרת AI בצורה ביקורתית, ולהוכיח במדידה שהתיקון עובד.</p>
+ <div class="event">
+  <div><b>דקות 0–5 · זיהוי הבעיה</b><span>המנחה מציג כשל במערכת שלכם ונותן נתוני לוג. מנסחים השערה: מה גרם לכשל ולמה.</span></div>
+  <div><b>דקות 5–15 · תכנון ותיקון</b><span>מבקשים מה־AI חלופות, עם הבקר, השפה, הפינים והמגבלות. בוחרים חלופה ומתקנים בקוד, בסף ההחלטה או בזרימת הנתונים.</span></div>
+  <div><b>דקות 15–25 · בדיקות</b><span>בודקים 3 מצבים: תקין, קצה וכשל. משווים לוגים ומדידות לפני ואחרי.</span></div>
+  <div><b>דקות 25–30 · הסבר</b><span>מסבירים בעצמכם: מקור התקלה, מה ה־AI עשה, למה בחרתם בתיקון הזה, מה מדדתם ומה המגבלות.</span></div>
+ </div>
+ <div class="quote"><b>דוגמה לאתגר:</b> המודל מחזיר "plastic" ברמת ביטחון 0.52, אבל סף ההפעלה הוא 0.70. מה הבקר צריך לעשות? הראו קוד ומדידה, ובדקו שהתיקון מונע מיון שגוי.</div>
+ <div class="grid2">
+  <div class="box"><h3>מה מגישים בסוף האירוע</h3><ul><li>קוד לפני ואחרי התיקון</li><li>לוגים ומדידות</li><li>ההנחיות המרכזיות ל־AI</li><li>טבלת בדיקות (3 מצבים) והסבר קצר לבחירה</li></ul></div>
+  <div class="box ok"><h3>מה נחשב ביצוע מצוין</h3><ul><li>אבחנתם לבד תקלה חדשה.</li><li>התיקון מנומק ומתאים לבקר ולשפה.</li><li>הוכחתם במדידה שהשינוי עוזר.</li><li>המערכת פועלת בבטחה גם כשהזיהוי לא ודאי.</li></ul></div>
+ </div>
+ <p style="margin-top:12px"><b>איך מתכוננים:</b> הכירו את זרימת הנתונים במערכת שלכם, שמרו לוגים, תרגלו ניסוח הנחיות מדויקות ל־AI, ודעו להפעיל את מכשירי המדידה.</p>
+</section>
+
+<section class="sec" id="book">
+ <h2><span class="num">6</span>ספר הפרויקט</h2>
+ <p class="lead">ספר הפרויקט הוא תנאי לבחינה. הוא מספר את הסיפור ההנדסי של הפרויקט, כולל איך עבדתם עם AI.</p>
+ <div class="grid2">
+  <div class="box"><h3>מה חייב להיות בספר</h3><ul>
+   <li>דף שער (לוגו, נושא, פרטים) והצהרת התלמיד</li><li>תוכן עניינים אוטומטי ומספור עמודים</li><li>תקציר</li><li>תרשים מלבנים שמראה את זרימת המידע</li><li>תרשים חשמלי והסברים</li><li>תוכנה עם תיעוד</li><li>רפלקציה</li><li>ביבליוגרפיה ונספחים</li></ul></div>
+  <div class="box"><h3>תיעוד לכל רכיב בנפרד</h3><ul>
+   <li>מאפיינים טכניים</li><li>הסבר איך הרכיב עובד ומה תפקידו</li><li>תרשים חשמלי</li><li>דוגמת קוד שמפעילה את הרכיב</li><li>מדידות מול הרקע התיאורטי</li><li>תקלות שהיו ותמונות</li></ul></div>
+  <div class="box"><h3>יומן ונספח AI</h3><ul><li>יומן עבודה שוטף: פגישות, מטרות ופעילות</li><li>נספח AI: הנחיות מרכזיות, ניתוח ביקורתי של מה שה־AI הציע, ומה פותח לבד ומה בעזרת AI</li></ul></div>
+  <div class="box"><h3>עיצוב</h3><ul><li>גופנים וגדלים אחידים</li><li>הבחנה ברורה בין כותרות לתוכן</li><li>יישור לימין, וקוד ופסקאות באנגלית לשמאל</li><li>סימני פיסוק במקום הנכון, בלי תווים מיותרים</li></ul></div>
+ </div>
+</section>
+
+<section class="sec" id="defense">
+ <h2><span class="num">7</span>יום ההגנה</h2>
+ <p class="lead">ההגנה נמשכת כ־30 דקות. הבוחן עובר איתכם על 5 שלבים:</p>
+ <div class="tw"><table>
+  <tr><th>שלב</th><th>מה תעשו</th></tr>
+  <tr><td><b>1. הצגת הפרויקט</b></td><td>מה הבעיה, מה המערכת עושה, תרשים המלבנים וזרימת המידע, ואיזה ידע מחוץ לאלקטרוניקה נדרש</td></tr>
+  <tr><td><b>2. ידע הנדסי והעמקה</b></td><td>איך פועלים הרכיבים, למה בחרתם את המתחים והחיבורים, איך עובר המידע, ושאלות עומק על נושא ההעמקה שלכם</td></tr>
+  <tr><td><b>3. קוד ותוכנה</b></td><td>הסבר של פונקציות, ההפרדה בין דרייברים ללוגיקה, והצעה לשינוי בקוד לפי דרישה חדשה של הבוחן (בלי לממש בפועל)</td></tr>
+  <tr><td><b>4. הפעלה ובדיקות</b></td><td>הפעלת הדגם, מדידה בפועל והסבר שיטתי איך מאתרים תקלה</td></tr>
+  <tr><td><b>5. כשירות AI, אתיקה ופתיחות</b></td><td>איפה השתמשתם ב־AI ומה עשיתם בעצמכם, הצעת AI שלא התאימה ואיך זיהיתם, בטיחות, פרטיות וקרדיט</td></tr>
+ </table></div>
+ <p><b>מה מביאים:</b> דגם עובד, ספר פרויקט, מחשב עם הקוד העדכני, ונתוני מדידות ולוגים.</p>
+</section>
+
+<section class="sec" id="grade">
+ <h2><span class="num">8</span>איך מעריכים אתכם (5 יח״ל)</h2>
+ <p class="lead">הציון נקבע לפי מחוון המפמ״ר, מתוך 100 נקודות.</p>
+ <div class="tw"><table>
+  <tr><th>מה בודקים</th><th style="width:90px">נקודות</th></tr>
+  <tr class="grp"><td>מורכבות, תקינות פעולה, נראות וגימור</td><td class="pts">25</td></tr>
+  <tr><td>דגם עובד במלואו</td><td class="pts">5</td></tr><tr><td>נראות וגימור: זיווד, הלחמות וחיווט נקי</td><td class="pts">5</td></tr><tr><td>מורכבות הפרויקט: טכנולוגיות חדשות, למשל למידת מכונה</td><td class="pts">10</td></tr><tr><td>איתור תקלות וביצוע מדידות</td><td class="pts">5</td></tr>
+  <tr class="grp"><td>בקיאות בנושא הפרויקט</td><td class="pts">60</td></tr>
+  <tr><td>הבנת חומרה, רכיבים ופרוטוקולים</td><td class="pts">20</td></tr><tr><td>הבנת קוד תוך שימוש ב־AI</td><td class="pts">10</td></tr><tr><td>בקיאות מעמיקה בקוד ובתוכנה מודולרית</td><td class="pts">20</td></tr><tr><td>גישה רב־תחומית (STEAM)</td><td class="pts">10</td></tr>
+  <tr class="grp"><td>איכות ספר הפרויקט</td><td class="pts">15</td></tr>
+  <tr><td>גוף הספר</td><td class="pts">3</td></tr><tr><td>עיצוב ועריכה</td><td class="pts">3</td></tr><tr><td>איכות התיעוד ותהליך העבודה</td><td class="pts">6</td></tr><tr><td>שקיפות וביקורת כלי AI</td><td class="pts">3</td></tr>
+ </table></div>
+ <p>המחוון המלא, עם השאלות שהבוחן ישאל: <a href="megama.html">מחוון ההערכה</a>.</p>
+</section>
+
+<section class="sec" id="checklist">
+ <h2><span class="num">9</span>רשימת בדיקה לפני ההגשה</h2>
+ <ul class="check">
+  <li>הדגם עובד מההתחלה ועד הסוף</li><li>החיווט מסודר והמערכת בתוך מארז</li><li>תרשים מלבנים ותרשים חשמלי מעודכנים</li><li>תיעוד מלא לכל רכיב בנפרד</li><li>טבלת מדידות עם הסבר</li><li>הקוד מתועד, ודרייברים נפרדים מהלוגיקה</li><li>אני יודע להסביר כל פונקציה בלי AI</li><li>אני יודע להסביר את נושא ההעמקה שלי לעומק</li><li>יומן עבודה מעודכן</li><li>נספח AI: הנחיות, ניתוח ביקורתי ושקיפות</li><li>בדקתי מצב תקין, מצב קצה ומצב כשל</li><li>המערכת עוצרת או עוברת למצב בטוח כשיש בעיה</li><li>קרדיט לספריות, לקוד פתוח ולכלי AI</li><li>תוכן עניינים אוטומטי ועיצוב אחיד בספר</li>
+ </ul>
+ <div class="actions"><button class="btn" type="button" onclick="window.print()">▤ הדפסה / שמירה כ־PDF</button><a class="btn light" href="hackathon.html">← לכל התוצרים</a></div>
+</section>
+
+<div class="footer">מגמת הנדסת אלקטרוניקה ומחשבים · מיחלייה עבד אלמגיד · יוחנן רושו · אירינה אוצ׳טל · מבוסס על חוזר המפמ״ר תשפ״ז</div>
+</div>
+<div class="credit">© Abed Mihilia</div>
+</body>
+</html>

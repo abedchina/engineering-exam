@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B1220">
+<meta name="description" content="מגמת אלקטרוניקה ומחשבים: התוצרים ליום ההאקתון. מחוון, הנחיות לתלמידים, דגם עבודה מצטיינת, תיאור הפרויקט, כשירות AI מתקדמת ופרופיל הבוגר.">
+<title>תוצרים ליום ההאקתון | מגמת אלקטרוניקה ומחשבים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Heebo:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1220;--navy2:#16223A;--steel:#2B3A55;--paper:#F4F6FA;--ink:#14213D;--soft:#4A5568;--sub:#6B7689;--mist:#BFD0E0;--teal:#14B8A6;--teal-d:#0F766E;--teal-soft:#E3F6F3;--amber:#F5A524;--amber-soft:#FFF5E1;--line:#E1E7EF;--shadow:0 12px 34px rgba(20,33,61,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Assistant,Arial,sans-serif;font-size:17px;line-height:1.75}
+h1,h2,h3{font-family:Heebo,Arial,sans-serif;margin:0 0 10px;line-height:1.3}
+h1{font-size:clamp(30px,4vw,46px);font-weight:900}h2{font-size:26px;font-weight:800}h3{font-size:19px;font-weight:700}
+p{margin:0 0 12px}a{color:var(--teal-d)}
+.header{background:var(--navy);color:#fff;padding:14px clamp(16px,4vw,60px);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}.brand svg{width:42px;height:42px;flex:none}
+.brand b{font-family:Heebo,Arial,sans-serif;font-size:20px;font-weight:900;display:block;line-height:1.2}.brand small{color:var(--mist);font-size:12.5px}
+.wrap{max-width:1100px;margin:0 auto;padding:26px 16px 70px}
+.hero{background:var(--navy);color:#fff;border-radius:24px;padding:34px clamp(20px,4vw,40px);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;left:-120px;bottom:-170px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(20,184,166,.25),transparent 65%)}
+.hero>*{position:relative}
+.eyebrow{color:var(--teal);font-weight:800;font-size:14px;margin-bottom:8px}
+.hero p{color:var(--mist);max-width:760px}
+.team{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px;font-size:15px;color:var(--mist)}.team b{color:#fff}
+.kicker{font-family:Heebo,Arial,sans-serif;font-weight:800;font-size:15px;color:var(--teal-d);margin:30px 0 12px;display:flex;align-items:center;gap:10px}
+.kicker:after{content:"";flex:1;height:1px;background:var(--line)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.dcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;border-top:6px solid var(--teal)}
+.dcard .n{font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:15px;color:var(--teal-d)}
+.dcard h3{font-size:21px;margin:4px 0 8px}
+.dcard p{color:var(--soft);font-size:15.5px;flex:1}
+.dcard ul{margin:0 0 14px;padding-inline-start:20px;color:var(--soft);font-size:15px}
+.status{display:inline-flex;align-items:center;gap:6px;background:var(--teal-soft);color:var(--teal-d);font-weight:800;font-size:13px;border-radius:20px;padding:4px 11px;margin-bottom:10px;align-self:flex-start}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--navy);color:#fff;border-radius:11px;padding:10px 16px;font-weight:800;text-decoration:none;font-size:15px;border:0;cursor:pointer;font-family:inherit}
+.btn.light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.sec{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px clamp(18px,3.5vw,34px);margin-top:14px;box-shadow:var(--shadow)}
+.sec h2{display:flex;align-items:center;gap:12px}
+.ico{width:40px;height:40px;flex:none;border-radius:12px;background:var(--amber);color:var(--navy);display:grid;place-items:center;font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:19px}
+.lead{font-size:18px;color:var(--ink)}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:14px 0}
+.flow div{flex:1;min-width:120px;border-radius:13px;padding:12px;text-align:center;background:var(--paper);font-weight:700;font-size:15px}
+.flow div small{display:block;font-weight:400;color:var(--sub);font-size:13px}
+.flow .ai{background:var(--teal);color:var(--navy)}.flow .ai small{color:var(--navy)}
+.flow i{align-self:center;font-style:normal;color:var(--teal-d);font-weight:900}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box{border-radius:15px;padding:15px 17px;background:var(--paper)}
+.box h3{font-size:17px;margin-bottom:6px}
+.box ul,.box ol{margin:0;padding-inline-start:20px}.box li{margin-bottom:4px;font-size:15.5px}
+.box.teal{background:var(--teal-soft)}.box.teal h3{color:var(--teal-d)}
+.box.amber{background:var(--amber-soft)}.box.amber h3{color:#8A5A0B}
+.level{display:flex;gap:14px;align-items:center;background:var(--navy);color:#fff;border-radius:16px;padding:16px 20px;margin:12px 0}
+.level .big{font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:44px;color:var(--teal);line-height:1}
+.level p{margin:0;color:var(--mist);font-size:15.5px}.level b{color:#fff}
+.goal{border-inline-start:5px solid var(--teal);background:var(--teal-soft);border-radius:12px;padding:14px 18px;font-size:18px;font-weight:700;margin:6px 0 16px;color:#0E4F49}
+.comp{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.comp div{background:var(--paper);border-radius:14px;padding:14px;border-top:4px solid var(--teal)}
+.comp b{display:block;font-family:Heebo,Arial,sans-serif;font-size:16px;margin-bottom:4px}
+.comp span{font-size:14.5px;color:var(--soft);line-height:1.6;display:block}
+.core{margin-top:14px;font-size:15.5px;color:var(--soft)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px;min-width:560px}
+th{background:var(--navy);color:#fff;text-align:right;padding:10px 13px}
+td{padding:10px 13px;border-top:1px solid var(--line);vertical-align:top}
+td.pts{font-family:Heebo,Arial,sans-serif;font-weight:800;text-align:center;white-space:nowrap}
+.todo{color:#8A5A0B;background:var(--amber-soft);border-radius:6px;padding:1px 6px;font-weight:700}
+.footer{text-align:center;color:var(--sub);font-size:13px;margin-top:26px}
+.credit{position:fixed;bottom:10px;left:10px;z-index:25;background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:5px 11px;border-radius:20px;opacity:.88;direction:ltr}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.comp{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){body{font-size:16px}.grid2,.comp{grid-template-columns:1fr}}
+@media print{body{background:#fff;font-size:12.5px}.credit,.btns,.btn{display:none!important}.sec,.dcard,.hero{box-shadow:none;break-inside:avoid-page}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header class="header"><div class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="7" fill="#16223A" stroke="#14B8A6" stroke-width="2.5"/><g stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"><path d="M17 3v6M24 3v6M31 3v6M17 39v6M24 39v6M31 39v6M3 17h6M3 24h6M3 31h6M39 17h6M39 24h6M39 31h6"/></g><path d="M26 14l-7 11h6l-3 9 8-12h-6z" fill="#F5A524"/></svg><div><b>מגמת אלקטרוניקה ומחשבים</b><small>מובילי הטמעת AI · תשפ״ז</small></div></div></header>
+<div class="wrap">
+
+<section class="hero">
+ <div class="eyebrow">● תוצרים ליום ההאקתון</div>
+ <h1>כשירות AI מתקדמת בפרויקט הגמר</h1>
+ <p>כל התוצרים במקום אחד: שלושת התוצרים שהתבקשו, ולצורך הצגת הפרויקט גם תיאור קצר, הסבר על כשירות AI מתקדמת ופרופיל הבוגר.</p>
+ <div class="team"><span><b>הצוות:</b> מיחלייה עבד אלמגיד · יוחנן רושו · אירינה אוצ׳טל</span><span><b>מפמ״ר:</b> שלומי אחנין</span></div>
+</section>
+
+<div class="kicker">שלושת התוצרים</div>
+<div class="cards">
+ <article class="dcard"><span class="status">✓ מוכן</span><div class="n">1</div><h3>מחוון להערכת התלמיד</h3>
+  <p>מצגת אינטראקטיבית: פרופיל הבוגר, כשירות AI מתקדמת, 12 קריטריונים עם 4 רמות ביצוע, חישוב ציון חי (25 · 60 · 15 = 100), ומחוון משוב לאירוע ההערכה.</p>
+  <div class="btns"><a class="btn" href="rubric.html">פתיחת המצגת</a><a class="btn light" href="megama.html">כלי לבוחן</a></div></article>
+ <article class="dcard"><span class="status">✓ מוכן</span><div class="n">2</div><h3>הנחיות לפרויקט לתלמידים</h3>
+  <p>מצגת אינטראקטיבית לתלמידים: מה בונים, מודל I, כללי עבודה עם AI, השנה ונקודות הבקרה, אירוע ההערכה עם סימולציה, ספר הפרויקט, ההגנה ורשימת בדיקה.</p>
+  <div class="btns"><a class="btn" href="guidelines-deck.html">פתיחת המצגת</a><a class="btn light" href="guidelines.html">גרסה להדפסה</a></div></article>
+ <article class="dcard"><span class="status">✓ מוכן</span><div class="n">3</div><h3>דגם של עבודה מצטיינת</h3>
+  <p>רובוט תנועות ידיים עם בינה מלאכותית: מודל AI שהתלמידים אימנו, בקר ESP32 וענן, מוצג לפי מודל I עם הדמיות חיות. <b>חדש במגמה:</b> לוח ESP32-P4 שהתלמיד בונה (PCB), תוכנית חדשה של המפמ״ר שבפיתוח, מוצג כתוספת לפרויקט.</p>
+  <div class="btns"><a class="btn" href="https://irinauchitel-eng.github.io/Robot-hand-movement-model/" target="_blank" rel="noopener">פתיחת הדגם</a><a class="btn light" href="#model">איך הוא עונה על המחוון</a></div></article>
+</div>
+
+<div class="kicker">לצורך הצגת הפרויקט</div>
+
+<section class="sec" id="about">
+ <h2><span class="ico">א</span>תיאור קצר של הפרויקט</h2>
+ <p class="lead">בפרויקט הגמר (5 יח״ל, כיתה י״ב) התלמיד בונה <b>מכלול</b>: מערכת משובצת שבה רכיב AI משפיע על החלטה של הבקר ועל פעולה פיזית.</p>
+ <div class="flow"><div>חישה<small>חיישנים, מצלמה</small></div><i>←</i><div class="ai">רכיב AI<small>סיווג, זיהוי או חיזוי</small></div><i>←</i><div>בקר<small>החלטה ובקרה</small></div><i>←</i><div>מפעיל<small>מנוע, ממסר, תצוגה</small></div></div>
+ <div class="grid2">
+  <div class="box"><h3>מה התלמיד נדרש לעשות</h3><ul><li>להגדיר צורך ולתכנן את ארכיטקטורת המערכת וזרימת הנתונים</li><li>לבנות ולבדוק כל רכיב, ולתעד מדידות</li><li>לשלב מודל AI ולקבוע איך הבקר פועל לפי התוצאה שלו</li><li>לבדוק את המערכת במצב תקין, מצב קצה ומצב כשל</li><li>לעבור 3 נקודות בקרה, ובהן אירוע הערכה של תקלה ושיפור בזמן אמת</li></ul></div>
+  <div class="box teal"><h3>התוצר המצופה</h3><ul><li><b>דגם עובד</b> של המערכת המלאה</li><li><b>ספר פרויקט</b> עם יומן עבודה כפול (הנדסי + AI) ונספח AI</li><li><b>הגנה</b> שבה התלמיד מסביר כל חלק בעצמו, מציע שינויי קוד ומדגים מדידה</li></ul></div>
+ </div>
+</section>
+
+<section class="sec" id="ai">
+ <h2><span class="ico">ב</span>כשירות AI מתקדמת</h2>
+ <div class="level"><div class="big">3</div><p><b>רמה 3, משלב/מטמיע:</b> התלמיד מחבר רכיב AI לחיישנים, לבקר ולמפעיל, שולט בזרימת הנתונים ובודק את התוצאות. רמה 2 היא הבסיס לכך.</p></div>
+ <div class="grid2">
+  <div class="box teal"><h3>מה ה־AI מאפשר בפרויקט (שני תפקידים)</h3><ul><li><b>כלי עבודה:</b> מציע חלופות לתכנון, לתיקון קוד ולניתוח תקלות.</li><li><b>חלק מהמערכת:</b> מודל סיווג או חיזוי שמפיק תוצאה ורמת ביטחון ומעביר אותן לבקר.</li></ul></div>
+  <div class="box amber"><h3>מה התלמיד מחליט בעצמו (שיקול דעת)</h3><ol><li>אילוצי החומרה והשפה</li><li>איזו חלופה לבחור</li><li>סף הביטחון ופעולת הבטיחות</li><li>נימוק הלוגיקה של הבקר</li></ol></div>
+  <div class="box"><h3>איך הכשירות באה לידי ביטוי</h3><ul><li>במערכת עצמה: המודל משפיע על החלטה, והמערכת בטוחה גם כשהזיהוי לא ודאי.</li><li>באירוע ההערכה: אבחון כשל חדש, הנחיה מדויקת ל־AI, תיקון, 3 בדיקות והסבר עצמאי.</li><li>בספר: נספח AI עם ניתוח ביקורתי ושקיפות.</li></ul></div>
+  <div class="box"><h3>הידע הנדרש</h3><ul><li>חומרה ומדידות: מעגלים, רב־מודד, סקופ, נתח לוגי</li><li>מיקרו־בקרים, חיישנים ומפעילים</li><li>MicroPython / Python, תקשורת I²C ו־UART</li><li>יסודות ML: סיווג, רמת ביטחון, סף החלטה ומגבלות מודל</li><li>תיעוד ובטיחות</li></ul></div>
+ </div>
+ <p style="margin-top:12px;font-size:15.5px;color:var(--soft)"><b>ההבחנה:</b> שימוש בכלי AI כדי לכתוב קוד לבד אינו רמה 3. נדרשים תכנון ממשק, שילוב במערכת, בדיקות והחלטות עצמאיות.</p>
+</section>
+
+<section class="sec" id="profile">
+ <h2><span class="ico">ג</span>פרופיל הבוגר</h2>
+ <div class="goal">הבוגר מתכנן ומשלב רכיב AI במערכת משובצת, מזהה כשל בפלט, מבצע תיקון מנומק ומאמת אותו במדידה.</div>
+ <div class="comp">
+  <div><b>חשיבה מערכתית</b><span>מחבר חשמל, ספרתי, בקרים, תוכנה ותקשורת למערכת אחת.</span></div>
+  <div><b>אוריינות AI ונתונים</b><span>משתמש ב־AI לתכנון, לבדיקה ולניתוח, ומשלב מודל במערכת.</span></div>
+  <div><b>ניסוח בעיות ופתרון</b><span>מאפיין מערכת חכמה מתוך צורך אמיתי ובוחר בין חלופות.</span></div>
+  <div><b>אחריות ואתיקה</b><span>בודק אמינות, בטיחות ומצבי קצה, שומר על פרטיות ונותן קרדיט.</span></div>
+  <div><b>צוות וניהול פרויקט</b><span>מתעד, מחלק משימות ומשתף ידע.</span></div>
+ </div>
+ <p class="core"><b>ליבת הידע שלא מוותרים עליה:</b> חשמל ואלקטרוניקה, מערכות ספרתיות, מיקרו־בקרים, תכנות ותקשורת. ה־AI מסביר ויוצר קוד, אבל לא מחליף הבנה פיזיקלית ומערכתית. הערך של הבוגר הוא שיקול הדעת שלו.</p>
+</section>
+
+<section class="sec" id="model">
+ <h2><span class="ico">✓</span>איך הדגם עונה על המחוון</h2>
+ <p style="color:var(--soft)">איפה רואים בדגם כל מרכיב של המחוון (5 יח״ל). את מה שמסומן בכתום משלימים ביום ההאקתון.</p>
+ <div class="tw"><table>
+  <tr><th>מרכיב במחוון</th><th style="width:70px">נק׳</th><th>מה רואים בדגם</th></tr>
+  <tr><td>מורכבות, תקינות פעולה, נראות וגימור</td><td class="pts">25</td><td>מערכת שלמה שעובדת: מצלמה ומודל AI, שרת בענן, רובוט ESP32 עם בקרת מנועים, מסך ESP32-P4 עם ג׳ויסטיק. מודל YOLO מקורי שהתלמידים אימנו. מדידות מתח בכל שלב בשרשרת הבקרה. <span class="todo">להשלים: תמונות של הזיווד והחיווט</span></td></tr>
+  <tr><td>בקיאות בנושא הפרויקט</td><td class="pts">60</td><td>גשר H, חוצץ, מרחיב יציאות I²C, מיתוג בטרנזיסטור ותכנון הספק (A). העמקה בתקשורת I²C ובבקרת זרם (D). ענן, ממשק ואפליקציה (C). החלטה בטוחה רק כשהזיהוי יציב (B).</td></tr>
+  <tr><td>איכות ספר הפרויקט</td><td class="pts">15</td><td>אתיקה ופתיחות: עצירה בניתוק, פרטיות הווידאו, קרדיט ותיעוד ב־GitHub. <span class="todo">להשלים: קישור לספר הפרויקט ולנספח ה־AI</span></td></tr>
+ </table></div>
+</section>
+
+<div class="footer">מגמת הנדסת אלקטרוניקה ומחשבים · מובילי הטמעת AI · מבוסס על חוזר המפמ״ר תשפ״ז</div>
+</div>
+<div class="credit">© Abed Mihilia</div>
+</body>
+</html>
