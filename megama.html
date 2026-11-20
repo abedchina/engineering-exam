@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B1220">
+<meta name="description" content="מגמת אלקטרוניקה ומחשבים — הערכת פרויקט גמר לפי מודל I: ידע בלי AI, ידע ייחודי עם AI, ידע מחוץ לתחום, העמקה ובסיס של אתיקה ופתיחות, לצד סוגי ההערכה: ידע, ביצוע, כשירות, תיעוד וערכים.">
+<title>מגמת אלקטרוניקה ומחשבים | הערכת פרויקט גמר במודל I</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Heebo:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+ --navy:#0B1220;--navy2:#16223A;--steel:#2B3A55;--paper:#F4F6FA;--ink:#14213D;--soft:#4A5568;--sub:#6B7689;--mist:#BFD0E0;
+ --teal:#14B8A6;--teal-d:#0F766E;--teal-soft:#E3F6F3;--amber:#F5A524;--amber-d:#8A5A0B;--amber-soft:#FFF5E1;
+ --red:#B4424E;--red-soft:#FDEEF0;--white:#FFFFFF;--line:#E1E7EF;--shadow:0 12px 34px rgba(20,33,61,.07)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Assistant,Arial,sans-serif;font-size:15.5px;line-height:1.6}
+button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}
+:focus-visible{outline:3px solid #7dd3c8;outline-offset:2px}
+h1,h2,h3{font-family:Heebo,Arial,sans-serif;margin-top:0}p{margin-top:0}
+h1{font-size:clamp(28px,3.4vw,44px);line-height:1.15;margin-bottom:10px;font-weight:900}
+h2{font-size:23px;line-height:1.35;margin-bottom:6px;font-weight:800}h3{font-size:17px;margin-bottom:8px;font-weight:700}
+small{font-size:12px}.muted{color:var(--sub)}.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block;font-variant-numeric:tabular-nums}.hidden{display:none!important}
+
+/* header */
+.header{background:var(--navy);color:#fff;padding:14px clamp(16px,4vw,60px);display:flex;justify-content:space-between;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand svg{width:44px;height:44px;flex:none}
+.brand b{font-family:Heebo,Arial,sans-serif;font-size:21px;font-weight:900;display:block;line-height:1.2}
+.brand small{color:var(--mist);font-size:12px}
+.header-note{color:var(--mist);border:1px solid var(--steel);padding:7px 13px;border-radius:40px;font-size:12px;white-space:nowrap}
+
+.wrap{max-width:1500px;margin:0 auto;padding:24px clamp(14px,3vw,46px) 60px}
+
+/* hero */
+.hero{position:relative;border-radius:24px;background:var(--navy);color:#fff;padding:32px 36px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.9fr);gap:30px;align-items:center;overflow:hidden;box-shadow:0 18px 40px rgba(11,18,32,.18)}
+.hero:before{content:"";position:absolute;inset:auto auto -160px -120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(20,184,166,.22),transparent 65%)}
+.hero>*{position:relative}
+.eyebrow{font-size:13px;font-weight:800;color:var(--teal);letter-spacing:.3px;margin-bottom:8px}
+.hero p{color:var(--mist);font-size:15px;line-height:1.8;max-width:680px;margin-bottom:18px}
+.hero-stats{display:flex;gap:10px;flex-wrap:wrap}
+.hero-stat{border:1px solid var(--steel);background:var(--navy2);border-radius:14px;padding:10px 16px;min-width:92px;text-align:center}
+.hero-stat b{display:block;font-family:Heebo,Arial,sans-serif;font-size:26px;line-height:1.2;color:#fff}
+.hero-stat span{font-size:12px;color:var(--mist)}
+
+/* I shape */
+.ishape{display:grid;gap:7px;width:100%;max-width:560px;margin:0 auto}
+.i-top{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.i-stem{width:58%;margin:0 auto;display:grid;gap:7px}
+.ibar{border-radius:15px;padding:12px 15px;min-width:0}
+.ibar .ilet{font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:26px;line-height:1}
+.ibar .iname{font-weight:800;font-size:13.5px;line-height:1.3;margin-top:4px}
+.ibar .ipct{font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:24px;line-height:1.1;margin-top:8px}
+.ibar .ilvl{font-size:12px;font-weight:700;opacity:.9}
+.ibar .iw{font-size:11.5px;opacity:.85;margin-top:2px}
+.meter{height:8px;border-radius:9px;margin-top:7px;overflow:hidden}
+.meter i{display:block;height:100%;border-radius:9px;transition:width .3s}
+.ib{background:var(--teal);color:var(--navy)}.ib .meter{background:rgba(11,18,32,.18)}.ib .meter i{background:var(--navy)}
+.ic{background:var(--amber);color:var(--navy)}.ic .meter{background:rgba(11,18,32,.18)}.ic .meter i{background:var(--navy)}
+.ia{background:var(--steel);color:#fff}.ia .meter{background:rgba(255,255,255,.18)}.ia .meter i{background:var(--teal)}
+.id{background:#fff;color:var(--ink);border:3px solid var(--teal)}.id .ilet{color:var(--teal-d)}.id .meter{background:#E5ECF3}.id .meter i{background:var(--teal-d)}
+.ie{background:var(--navy2);color:#fff;border:2px solid var(--teal);text-align:center}.ie .meter{background:rgba(255,255,255,.16);max-width:340px;margin-inline:auto}.ie .meter i{background:var(--teal)}
+.hero .ibar{padding:12px 14px}.hero .ie{background:#1d2b47}
+.ishape.mini .ibar{padding:10px 12px}.ishape.mini .iname{font-size:12.5px}
+
+/* explainer */
+.explain{margin-top:18px}
+.explain summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 22px;font-family:Heebo,Arial,sans-serif;font-weight:800;font-size:17px}
+.explain summary::-webkit-details-marker{display:none}
+.explain summary:after{content:"▾";color:var(--teal-d);transition:transform .2s}
+.explain[open] summary:after{transform:rotate(180deg)}
+.explain-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:0 22px 22px}
+.legend{display:flex;flex-direction:column;gap:9px}
+.legend-row{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border-radius:12px;padding:10px 13px}
+.legend-row b{display:block;font-size:14px}.legend-row span{font-size:13px;color:var(--soft);line-height:1.6}
+.legend h3{font-size:15px;color:var(--teal-d);margin:0 0 2px}
+
+/* chips */
+.ichip{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:8px;font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:13px;flex:none}
+.ichip.k-B{background:var(--teal);color:var(--navy)}.ichip.k-C{background:var(--amber);color:var(--navy)}.ichip.k-A{background:var(--steel);color:#fff}
+.ichip.k-D{background:#fff;color:var(--teal-d);border:2px solid var(--teal)}.ichip.k-E{background:var(--navy2);color:#fff;font-size:11.5px}
+.tchip{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:20px;font-size:12px;font-weight:800;background:#EEF2F7;color:var(--ink);white-space:nowrap}
+.tchip:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--dot,#94a3b8)}
+.t-know{--dot:#3B6FD8}.t-perf{--dot:#E07B24}.t-comp{--dot:#14B8A6}.t-doc{--dot:#8B5CF6}.t-val{--dot:#C2410C}
+.tchip.t-comp{background:var(--teal-soft);color:var(--teal-d)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.focusline{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--sub);font-weight:700}
+.focusline>div{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+/* notices */
+.notice{display:flex;gap:12px;align-items:flex-start;margin:16px 0;border:1px solid #D3E2EC;background:#EEF5FA;color:#2F4C61;border-radius:13px;padding:13px 16px;font-size:13.5px;line-height:1.7}
+.notice .mark{font-size:19px;line-height:1.2}.notice.warning{background:var(--amber-soft);border-color:#F2DDB0;color:#6E4A10}
+
+/* layout */
+.workspace{display:grid;grid-template-columns:282px minmax(0,1fr);gap:20px;align-items:start}
+.sidebar{position:sticky;top:14px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.pad{padding:19px}
+.kicker{font-size:12px;font-weight:800;color:var(--sub);letter-spacing:.5px;margin-bottom:11px}
+.menu{display:flex;flex-direction:column;gap:4px}
+.navbtn{width:100%;border:0;background:transparent;color:var(--soft);display:flex;align-items:center;gap:11px;text-align:right;padding:10px;border-radius:12px;transition:background .15s}
+.navbtn:hover{background:var(--paper)}
+.navbtn.active{background:var(--teal-soft);color:var(--teal-d)}
+.navicon{width:34px;height:34px;flex:none;background:#EDF1F6;color:var(--soft);border-radius:10px;display:grid;place-items:center;font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:14px}
+.navbtn.active .navicon{background:var(--teal);color:var(--navy)}
+.navbtn .detail{flex:1;min-width:0}.navbtn .detail strong{display:block;font-size:13.5px;line-height:1.35}.navbtn .detail small{display:block;font-size:11.5px;opacity:.85}
+.navbtn .check{color:var(--teal-d);font-weight:900}
+.navgroup{border-top:1px solid var(--line);margin-top:10px;padding-top:10px;display:flex;flex-direction:column;gap:4px}
+.progressline{display:flex;justify-content:space-between;font-size:12.5px;color:var(--soft);margin:12px 0 6px}
+.progress{height:9px;background:#EDF1F6;border-radius:15px;overflow:hidden}.progress>div{height:100%;background:linear-gradient(90deg,var(--teal),#3B82F6);border-radius:14px;transition:width .2s}
+.timer{font-family:Heebo,Arial,sans-serif;font-weight:900;font-size:32px;text-align:center;direction:ltr;font-variant-numeric:tabular-nums;line-height:1.35}
+.timer.warn{color:var(--red)}.timer-sub{text-align:center;font-size:12.5px;color:var(--sub)}
+.timer-actions{display:flex;gap:8px;margin-top:12px}.timer-actions button{flex:1}
+.helper{font-size:12px;color:var(--sub);line-height:1.6;margin:9px 0 0}
+.main{display:flex;flex-direction:column;gap:16px;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.panel-head p{font-size:14px;color:var(--sub);margin:5px 0 0;line-height:1.7}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--teal-soft);color:var(--teal-d);font-size:12px;font-weight:800;padding:6px 11px;border-radius:25px;white-space:nowrap}
+.pill.dark{background:var(--navy);color:#fff}
+.formfields{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;margin-top:16px}
+.field{display:block;min-width:0}.field>span{display:block;color:var(--soft);font-weight:700;font-size:13px;margin-bottom:6px}
+.field input,.field select,.field textarea,.entry-input{width:100%;min-height:44px;background:#fff;border:1px solid #D4DEE8;border-radius:11px;padding:10px 12px;color:var(--ink);outline:0}
+.field input:focus,.field select:focus,.field textarea:focus,.entry-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(20,184,166,.18)}
+textarea{resize:vertical;min-height:80px;line-height:1.6}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:7px;background:#fff;border:1px solid #D4DEE8;color:var(--ink);border-radius:11px;padding:9px 16px;font-size:13.5px;font-weight:800;min-height:40px;transition:background .12s,border-color .12s}
+.btn:hover:not(:disabled){background:var(--paper);border-color:#B5C4D4}
+.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}.btn.primary:hover:not(:disabled){background:var(--navy2)}
+.btn.teal{background:var(--teal);color:var(--navy);border-color:var(--teal)}
+.btn.danger{color:var(--red);border-color:#EFD3D7}
+.btn.sm{padding:7px 11px;min-height:34px;font-size:12.5px}.btn:active{transform:translateY(1px)}
+.split{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.blockline{height:1px;background:var(--line);margin:22px 0}
+.subsection{display:flex;align-items:center;gap:9px;margin-bottom:11px}.subsection h3{margin:0}
+.roundicon{width:32px;height:32px;background:var(--teal-soft);color:var(--teal-d);border-radius:10px;display:grid;place-items:center;font-size:16px;font-weight:900}
+
+/* stage */
+.stage-top{padding:25px 28px 21px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px}
+.stage-top p{font-size:14px;color:var(--soft);line-height:1.8;max-width:760px;margin:8px 0 0}
+.timepill{background:var(--paper);text-align:center;border-radius:14px;min-width:100px;padding:10px 16px;align-self:start}
+.timepill b{display:block;font-family:Heebo,Arial,sans-serif;color:var(--ink);font-size:24px;line-height:1.3}.timepill small{color:var(--sub)}
+.stage-inner{padding:22px 28px 26px}
+.qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.question{padding:14px 15px;display:flex;gap:12px;border:1px solid var(--line);background:#FAFBFD;border-radius:13px}
+.question .num{flex:none;background:#E8EEF6;color:var(--ink);border-radius:8px;width:28px;height:28px;display:grid;place-items:center;font-weight:800;font-size:13px}
+.question .qbody{flex:1;min-width:0}
+.question strong{font-size:14px;line-height:1.6;display:block}
+.question small{font-size:12.5px;line-height:1.6;display:block;color:var(--sub);margin-top:4px}
+.question .chips{margin-top:8px}
+.question.new{border-color:#BDE9E2;background:#F4FCFA}
+.checks{display:flex;gap:8px;flex-wrap:wrap}
+.checkitem{border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:10px;display:flex;align-items:center;gap:7px;font-size:13px;cursor:pointer}
+.checkitem.checked{border-color:#7FD8CB;background:var(--teal-soft);color:var(--teal-d)}
+.checkitem input{accent-color:var(--teal-d);width:15px;height:15px}
+.tipbox{background:#F0F5FA;border-right:3px solid #5B8DB8;border-radius:10px;padding:12px 15px;font-size:13px;line-height:1.75;color:#33536A;margin:14px 0}
+.tipbox.amber{background:var(--amber-soft);border-color:var(--amber);color:#6E4A10}
+.tipbox.teal{background:var(--teal-soft);border-color:var(--teal);color:#0E5C55}
+.criteria-lite{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.lite{border:1px solid var(--line);padding:13px;border-radius:13px;background:#fff;display:flex;flex-direction:column}
+.lite .lhead{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.lite strong{font-size:13.5px;display:block}
+.lite p{font-size:12.5px;color:var(--sub);margin:4px 0 10px;line-height:1.55;flex:1}
+.scale{display:flex;gap:4px}
+.scale button{min-width:0;flex:1;border:1px solid #D8E2EC;background:#fff;color:var(--soft);font-weight:800;border-radius:8px;padding:6px 4px;font-size:13px}
+.scale button small{display:block;font-weight:600;font-size:10.5px}
+.scale button[aria-pressed="true"]{background:var(--teal-soft);border-color:var(--teal);color:var(--teal-d)}
+.scale button[aria-pressed="true"].bad{background:var(--red-soft);color:var(--red);border-color:#E9B5BC}
+.scale button[aria-pressed="true"].mid{background:var(--amber-soft);color:var(--amber-d);border-color:#F1CB80}
+.step-actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:22px}
+.actions-right{display:flex;gap:8px;flex-wrap:wrap}
+.special{border-radius:16px;padding:18px 20px;margin-bottom:22px}
+.special h3{display:flex;gap:9px;align-items:center}
+.special p{font-size:14px;line-height:1.75;margin-bottom:10px}
+.special.d{border:2px solid var(--teal);background:linear-gradient(160deg,#F2FCFA,#fff)}
+.special.d h3{color:var(--teal-d)}
+.special.b{border:1px solid #BDE9E2;background:linear-gradient(160deg,#F2FCFA,#F3F7FC)}
+.special.b h3{color:var(--teal-d)}
+.special.e{border:1px solid #CBD5E3;background:#F6F8FB}
+.suggested{margin-bottom:12px;padding:10px 13px;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:13px;line-height:1.7}
+.topicchips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}
+.topicchips button{border:1px solid #BFE5DF;background:#fff;color:var(--teal-d);border-radius:20px;padding:5px 11px;font-size:12.5px;font-weight:700}
+.topicchips button:hover{background:var(--teal-soft)}
+
+/* rubric */
+.rubric-intro{padding:22px 26px;border-bottom:1px solid var(--line)}
+.score-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 0}
+.stat{background:var(--paper);padding:13px 16px;border-radius:13px}
+.stat strong{font-family:Heebo,Arial,sans-serif;font-size:26px;display:block;line-height:1.4;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--sub)}
+.groups{padding:20px 24px 26px;display:flex;flex-direction:column;gap:14px}
+.rubric-group{border:1px solid var(--line);border-radius:15px;overflow:hidden}
+.rubric-group-header{background:var(--navy);color:#fff;padding:13px 17px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.rubric-group-header h3{font-size:16px;margin:0}.rubric-group-header small{color:var(--mist)}
+.group-total{font-family:Heebo,Arial,sans-serif;font-weight:800;color:var(--teal);white-space:nowrap}
+.criterion{border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) 196px;gap:15px;align-items:center;padding:16px 17px;background:#fff}
+.criterion .ctitle{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.criterion strong{font-size:14.5px}
+.criterion .desc{font-size:13px;color:var(--sub);line-height:1.7;margin-top:5px}
+.criterion .cue{font-size:13px;color:var(--teal-d);margin-top:7px;line-height:1.65}
+.criterion-controls{display:flex;flex-direction:column;gap:7px}
+.criterion-controls label{font-size:12px;color:var(--sub)}
+.score-field{display:flex;align-items:center;gap:7px;justify-content:flex-end}
+.score-field input{width:88px;min-height:42px;font-weight:800;text-align:center;font-size:17px}
+.score-field em{font-size:13px;color:var(--sub);font-style:normal;direction:ltr}
+.notapp{font-size:12.5px;color:var(--sub);background:#F2F4F6;padding:10px;border-radius:10px;text-align:center}
+.criterion-controls .entry-input{min-height:36px;padding:7px 10px;font-size:12px}
+.rubric-foot{padding:0 26px 24px;font-size:12.5px;color:var(--sub)}
+.stage-score{border:2px solid var(--teal);border-radius:15px;margin:20px 0 6px;overflow:hidden}
+.stage-score-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 17px;background:var(--teal-soft)}
+.stage-score-head h3{margin:0;font-size:16px;color:var(--teal-d)}
+.stage-score-head b{font-family:Heebo,Arial,sans-serif;font-size:18px;color:var(--ink);white-space:nowrap}
+.final-grade{border:2px solid var(--navy);background:#fff;border-radius:15px;padding:16px 18px;margin-top:16px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.final-grade h3{margin:0 0 3px;font-size:18px}.final-grade p{margin:0;font-size:13px;color:var(--sub)}
+.fg-ctrl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.final-grade input{width:98px;min-height:48px;font-size:23px;font-weight:800;text-align:center}
+.final-grade em{font-style:normal;color:var(--sub);direction:ltr}
+
+/* profile */
+.profile-wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;margin-top:20px}
+.profile-card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}
+.profile-card h3{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.weightline{font-size:12.5px;color:var(--sub);margin-top:12px;line-height:1.8;text-align:center}
+.trow{display:grid;grid-template-columns:110px minmax(0,1fr) 62px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.trow:last-child{border-bottom:0}
+.trow b{font-size:14px}.trow small{display:block;color:var(--sub);font-size:11.5px;line-height:1.4}
+.tbar{height:12px;background:#EDF1F6;border-radius:10px;overflow:hidden}.tbar i{display:block;height:100%;border-radius:10px;background:var(--dot)}
+.tval{font-family:Heebo,Arial,sans-serif;font-weight:800;text-align:left;direction:ltr;font-size:15px}
+.feedback{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fb{border-radius:13px;padding:13px 15px;font-size:13.5px;line-height:1.7}
+.fb b{display:block;font-family:Heebo,Arial,sans-serif;font-size:14px;margin-bottom:3px}
+.fb.good{background:var(--teal-soft);color:#0E5C55}.fb.grow{background:var(--amber-soft);color:#6E4A10}
+
+/* summary */
+.summary-pad{padding:26px}
+.sum-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--soft)}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:13px;margin-top:16px}
+.reporttable{border-collapse:collapse;width:100%;min-width:620px;font-size:13px}
+.reporttable th{background:var(--navy);color:#fff;padding:11px 13px;text-align:right}
+.reporttable td{padding:11px 13px;border-top:1px solid var(--line);vertical-align:top}
+.reporttable .grp-row td{background:var(--paper);font-size:13.5px}
+.reporttable .item-name{padding-right:24px}
+.sum-field{justify-content:flex-start}.sum-field input{width:78px;min-height:38px;font-size:16px;font-weight:800;text-align:center}
+.reporttable td .entry-input[type=text]{min-height:36px;font-size:12.5px}
+.summary-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.print-title{display:none}
+
+.footer{text-align:center;color:var(--sub);font-size:12px;padding:4px 0}
+.footer a{color:var(--teal-d)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,10px);max-width:420px;opacity:0;pointer-events:none;background:var(--navy);color:#fff;border-radius:11px;padding:11px 17px;box-shadow:0 10px 25px rgba(0,0,0,.2);transition:.2s;z-index:30;font-size:13.5px}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.credit{position:fixed;bottom:10px;left:10px;z-index:25;background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:5px 11px;border-radius:20px;opacity:.88;direction:ltr}
+
+@media(max-width:1150px){.workspace{grid-template-columns:236px minmax(0,1fr)}.formfields{grid-template-columns:1fr 1fr}.formfields .field:first-child{grid-column:1/-1}.qgrid{grid-template-columns:1fr}.criterion{grid-template-columns:1fr 170px}.profile-wrap{grid-template-columns:1fr}}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero .ishape{max-width:440px}.explain-body{grid-template-columns:1fr}}
+@media(max-width:760px){.header-note{display:none}.hero{padding:22px 18px}.wrap{padding:14px 12px 50px}.workspace{display:flex;flex-direction:column}.sidebar{position:static;width:100%}.menu{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.menu .navbtn{padding:7px 2px;flex-direction:column;gap:4px;text-align:center}.menu .navbtn .detail strong{font-size:10.5px}.menu .navbtn .detail small,.menu .navbtn .check{display:none}.navgroup{display:grid;grid-template-columns:1fr 1fr 1fr}.navgroup .navbtn{flex-direction:column;text-align:center;gap:4px;padding:8px 2px}.navgroup .navbtn small{display:none}.sidebar>.card:nth-child(2),.sidebar>.card:nth-child(3){display:none}.formfields{grid-template-columns:1fr}.stage-top{padding:18px}.stage-top h2{font-size:21px}.stage-inner,.summary-pad{padding:18px}.timepill{min-width:76px;padding:9px}.groups{padding:14px}.criterion{grid-template-columns:1fr}.criterion-controls{max-width:280px}.stat{padding:10px}.stat strong{font-size:21px}.panel-head{flex-direction:column}.feedback{grid-template-columns:1fr}.trow{grid-template-columns:92px minmax(0,1fr) 52px}.explain-body{padding:0 14px 16px}}
+@media(max-width:480px){.score-summary{gap:5px}.stat strong{font-size:18px}.stat span{font-size:11px}.i-stem{width:70%}.ibar .iname{font-size:12px}.ibar .ipct{font-size:20px}.actions-right{width:100%}.actions-right>*{flex:1}}
+@media print{body{background:#fff}.header,.hero,.explain,.sidebar,.form-card,.stage-card,.rubric-card,.notice,.no-print,.footer,.toast,.credit{display:none!important}.wrap{padding:0;max-width:none}.workspace,.main{display:block}.report-card{display:block!important;border:0;box-shadow:none}.summary-pad{padding:0}.print-title{display:block}.reporttable th{background:#e9edf2!important;color:#000}.reporttable td,.reporttable th{font-size:10px;padding:5px}.reporttable{min-width:0}.table-scroll{overflow:visible}.profile-wrap{grid-template-columns:1fr 1fr}.ibar,.ichip,.tbar i,.meter i{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header class="header">
+ <div class="brand">
+  <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="9" width="30" height="30" rx="7" fill="#16223A" stroke="#14B8A6" stroke-width="2.5"/><g stroke="#14B8A6" stroke-width="2.5" stroke-linecap="round"><path d="M17 3v6M24 3v6M31 3v6M17 39v6M24 39v6M31 39v6M3 17h6M3 24h6M3 31h6M39 17h6M39 24h6M39 31h6"/></g><path d="M26 14l-7 11h6l-3 9 8-12h-6z" fill="#F5A524"/></svg>
+  <div><b>מגמת אלקטרוניקה ומחשבים</b><small>הערכת פרויקט גמר · מודל I וסוגי הערכה</small></div>
+ </div>
+ <div class="header-note">סביבת עזר לבוחן · עברית</div>
+</header>
+<div class="wrap">
+<section class="hero">
+ <div>
+  <div class="eyebrow">● הערכה הנדסית במודל I</div>
+  <h1>לא רק ציון. תמונה מלאה של התלמיד.</h1>
+  <p>הבוחן עובר על חמשת שלבי הבחינה, מזין את ניקוד המחוון הרשמי, ומקבל בסוף את <b style="color:#fff">פרופיל ה־I</b> של התלמיד: ידע בלי AI, ידע ייחודי עם AI, ידע מחוץ לתחום, העמקה בנושא אחד, ובבסיס אתיקה ופתיחות. לצד זה מוצג <b style="color:#fff">סוג ההערכה</b> של כל ראיה: ידע, ביצוע, כשירות, תיעוד או ערכים.</p>
+  <div class="hero-stats"><div class="hero-stat"><b>30</b><span>דקות מוצעות</span></div><div class="hero-stat"><b>5</b><span>שלבי בחינה</span></div><div class="hero-stat"><b>5</b><span>חלקי ה־I</span></div><div class="hero-stat"><b>5</b><span>סוגי הערכה</span></div></div>
+ </div>
+ <div id="heroI"></div>
+</section>
+
+<details class="card explain" id="explain">
+ <summary>מה בודקים? מודל I וסוגי ההערכה</summary>
+ <div class="explain-body">
+  <div class="legend"><h3>מודל I: ממה בנוי הידע של התלמיד</h3><div id="legendI"></div></div>
+  <div class="legend"><h3>סוגי ההערכה: איך התלמיד מראה את הידע</h3><div id="legendT"></div></div>
+ </div>
+</details>
+
+<div class="notice"><span class="mark" aria-hidden="true">ⓘ</span><div><strong>כלי עזר בלבד.</strong> משקלי הסעיפים נלקחו מצילומי טבלת ההערכה של המפמ״ר. השאלות, חלוקת הזמן, שיוך הסעיפים למודל I ולסוגי ההערכה ופרופיל ה־I הם הצעה פדגוגית, ואינם משנים את הניקוד הרשמי. רק הגרסה הרשמית והעדכנית של המחוון קובעת.</div></div>
+
+<div class="workspace">
+<aside class="sidebar" aria-label="ניווט">
+ <div class="card pad"><div class="kicker">מהלך הבחינה</div><nav class="menu" id="stepNav" aria-label="שלבי הבחינה"></nav>
+  <div class="navgroup">
+   <button class="navbtn" id="navRubric" type="button"><span class="navicon">◫</span><span class="detail"><strong>מחוון המפמ״ר</strong><small>ניקוד רשמי</small></span></button>
+   <button class="navbtn" id="navSummary" type="button"><span class="navicon">I</span><span class="detail"><strong>פרופיל I וסיכום</strong><small>תמונת התלמיד ודוח</small></span></button>
+  </div>
+  <div class="progressline"><span>תצפיות שתועדו</span><b id="progressText" class="ltr">0 / 0</b></div><div class="progress"><div id="progressFill" style="width:0%"></div></div>
+ </div>
+ <div class="card pad"><div class="split"><b style="font-size:14px">שעון הבחינה</b><span class="pill" id="phaseName">שלב 1</span></div><div class="timer" id="clock">00:00</div><div class="timer-sub" id="phaseClock">נותרו בשלב 04:00</div><div class="timer-actions"><button class="btn primary sm" id="timerToggle" type="button">▶ התחלה</button><button class="btn sm" id="timerReset" type="button">↺ אפס</button></div><p class="helper">המעבר בין השלבים ידני. חלוקת הזמנים היא המלצה.</p></div>
+ <div class="card pad"><div class="kicker">נתונים ופרטיות</div><p class="helper" style="margin:0 0 12px">האתר פועל בלי שרת. ההערכה נשמרת בדפדפן הזה בלבד ולא עולה לענן.</p><button class="btn danger sm" id="clearAll" type="button" style="width:100%">נקה הערכה והתחל מחדש</button></div>
+</aside>
+<main class="main">
+ <section class="card pad form-card"><div class="panel-head"><div><h2>פרטי הפרויקט</h2><p>השאלות מותאמות לסוג הפרויקט. מומלץ להשתמש בקוד נבחן ולא בפרטים אישיים.</p></div><span class="pill">◉ שמירה מקומית</span></div>
+  <div class="formfields"><label class="field"><span>שם או תיאור הפרויקט</span><input id="project" maxlength="120" placeholder="לדוגמה: רובוט בתנועות ידיים"></label><label class="field"><span>סוג הפרויקט</span><select id="projectType"><option value="sensors">בקרה, חיישנים ומפעילים</option><option value="iot">תקשורת ו־IoT</option><option value="ai">מודל AI כחלק מהמערכת</option><option value="other">פרויקט אחר</option></select></label><label class="field"><span>מסלול הבחינה</span><select id="track"><option value="5">5 יח״ל</option><option value="3">3 יח״ל</option></select></label></div>
+  <div style="margin-top:11px;display:flex;gap:12px;flex-wrap:wrap;align-items:end"><label class="field" style="width:190px"><span>מזהה נבחן (רשות)</span><input id="candidate" maxlength="36" placeholder="לדוגמה: T-014"></label><label class="field" style="flex:1;min-width:220px"><span>נושא ההעמקה (D) שהתלמיד בחר</span><input id="dTopicTop" maxlength="80" placeholder="לדוגמה: תקשורת I²C"></label></div>
+ </section>
+ <section class="card stage-card" id="stageView"></section>
+ <section class="card rubric-card hidden" id="rubricView"></section>
+ <section class="card report-card hidden" id="summaryView"></section>
+ <div class="footer">מגמת אלקטרוניקה ומחשבים · סביבת עזר לליווי הבחינה, אינה אתר ממשלתי ואינה מחליפה מחוון רשמי · <a href="index.html">הגרסה הקודמת של הכלי</a></div>
+</main>
+</div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="credit">© Abed Mihilia</div>
+<script>
+'use strict';
+const KEY='megama_imodel_v1';
+
+// חלקי מודל I
+const IPARTS={
+ B:{letter:'B',name:'ידע ייחודי עם AI',desc:'שילוב מושכל של כלי AI ומודלים בפרויקט: ניתוח, ביקורת ותיקוף של תוצרי AI.',cls:'ib'},
+ C:{letter:'C',name:'ידע מחוץ לתחום',desc:'תחומים משיקים: פיזיקה, מתמטיקה, עיצוב, ענן, צרכי משתמש, ניהול פרויקט.',cls:'ic'},
+ A:{letter:'A',name:'ידע בלי AI · יסודות',desc:'יסודות האלקטרוניקה והתוכנה: רכיבים, מעגלים, קוד, הפעלה ומדידה.',cls:'ia'},
+ D:{letter:'D',name:'העמקה בנושא אחד',desc:'נושא אחד שהתלמיד מכיר לעומק, למשל פרוטוקול I²C ברמת הביט או דרייבר זרם.',cls:'id'},
+ E:{letter:'בסיס',name:'אתיקה מקצועית ופתיחות',desc:'בטיחות, פרטיות, קרדיט ושקיפות, תיעוד, קבלת ביקורת ועבודת צוות.',cls:'ie'}
+};
+const IORDER=['A','B','C','D','E'];
+// סוגי הערכה
+const TYPES={
+ know:{name:'ידע',desc:'הבנה והסבר: התלמיד מסביר איך ולמה זה עובד.'},
+ perf:{name:'ביצוע',desc:'הדגמה מעשית: הפעלה, מדידה ואיסוף ראיות.'},
+ comp:{name:'כשירות',desc:'יישום הידע במצב חדש: שיפוט, קבלת החלטות, אבחון ואתגר מותאם.'},
+ doc:{name:'תהליך ותיעוד',desc:'חוברת העבודה, יומן העבודה ותיעוד הבדיקות.'},
+ val:{name:'ערכים',desc:'אתיקה מקצועית, שקיפות ופתיחות לביקורת.'}
+};
+const TORDER=['know','perf','comp','doc','val'];
+
+// משקלי הקריטריונים הועתקו מצילומי טבלת המפמ״ר. i = חלק במודל I, t = סוג הערכה.
+const GROUPS=[
+ {id:'complex',name:'מורכבות, תקינות פעולה, נראות וגימור',cap:{'5':25,'3':40},items:[
+  {id:'running',i:'A',t:'perf',name:'יישום מלא של דגם תוצר עובד',max:{'5':5,'3':10},desc:'תקינות פעולה מלאה של המערכת המשובצת; בקר, רכיבי קלט/פלט, רכיבי הפעלה ושליטה ופרוטוקולי תקשורת.',cue:'הפעל את הפרויקט והצג פעולה תקינה של קלט, בקר ופלט.'},
+  {id:'finish',i:'A',t:'perf',name:'נראות אסתטית וגימור',max:{'5':5,'3':10},desc:'רמת הזיווד, הלחמות, חיווט נקי ומראה מוצר סופי אסתטי.',cue:'בדוק את סידור הרכיבים, החיווט והגימור.'},
+  {id:'complexity',i:'D',t:'comp',name:'מורכבות הפרויקט',max:{'5':10,'3':null},desc:'התמודדות עם טכנולוגיות חדשות או ייחודיות, סיכונים תכנוניים ועקרונות מתקדמים; כלילת AI היא דוגמה אפשרית, לא חובה גורפת.',cue:'בקש הסבר לבחירות התכן ולבעיה ההנדסית המאתגרת ביותר.'},
+  {id:'faults',i:'A',t:'perf',name:'מתודולוגיית איתור תקלות וביצוע מדידות',max:{'5':5,'3':20},desc:'ביצוע מדידות באמצעות ציוד מתאים, הצגת תוצאות והסבר שיטתי לאבחון תקלות.',cue:'בקש מדידה או הצג תקלה סבירה ובדוק כיצד התלמיד ניגש לאבחון.'}
+ ]},
+ {id:'knowledge',name:'בקיאות בנושא הפרויקט',cap:{'5':60,'3':30},items:[
+  {id:'hardware',i:'A',t:'know',name:'הבנת חומרה ורכיבים',max:{'5':20,'3':20},desc:'הסבר אופן פעולת הרכיבים והפרוטוקולים המקשרים ביניהם, למשל I²C, SPI ו־OneWire.',cue:'בחר רכיב ופרוטוקול מהפרויקט ושאל כיצד הם עובדים.'},
+  {id:'aicode',i:'B',t:'comp',name:'הבנת קוד תוך שימוש ב־AI',max:{'5':10,'3':10},desc:'ניתוח קוד קיים, הסבר הלוגיקה והצעת שינוי בקוד בעזרת כלי AI או הסבר לקוד שנוצר באמצעות AI. בצילום המחוון כתוב: ללא מימוש בפועל.',cue:'בקש להסביר פונקציה, לבקר הצעת AI ולהציע שינוי; אין חובה לבצע אותו פיזית.'},
+  {id:'deepcode',i:'A',t:'know',name:'בקיאות מעמיקה בקוד ובתוכנה מודולרית',max:{'5':20,'3':null},desc:'הפרדה בין דרייברים ללוגיקה, ניתוח לוגי בזמן אמת והסבר שינויים מבניים בקוד.',cue:'בקש להסביר יחסי גומלין בין מודולים, פונקציות ונתוני מערכת.'},
+  {id:'steam',i:'C',t:'comp',name:'גישה מולטי־דיסציפלינרית בשיטת STEAM',max:{'5':10,'3':null},desc:'קישור העקרונות המדעיים, המתמטיים, העיצוביים והטכנולוגיים העומדים בבסיס פתרון הבעיה.',cue:'בקש לנמק בחירת פתרון באמצעות שני תחומי ידע לפחות.'}
+ ]},
+ {id:'book',name:'איכות חוברת העבודה',cap:{'5':15,'3':30},items:[
+  {id:'body',i:'E',t:'doc',name:'גוף החוברת',max:{'5':3,'3':10},desc:'דף שער, תקציר, תוכן עניינים, תרשים מלבנים, תרשים חשמלי, הסברים, תוכנה מתועדת, רפלקציה, ביבליוגרפיה ונספחים.',cue:'בקש לראות את המסמכים ואת רצף זרימת המידע בפרויקט.'},
+  {id:'documentation',i:'E',t:'doc',name:'איכות התיעוד ותהליך העבודה',max:{'5':6,'3':10},desc:'תיעוד מפורט לכל רכיב בנפרד: מאפיינים, הסברים טכנולוגיים, תרשים חשמלי, קוד הפעלה, מדידות ותקלות; יומן עבודה שוטף.',cue:'בדוק האם תועדו בדיקות ותוצאות עבור הרכיבים בפועל.'},
+  {id:'transparency',i:'E',t:'val',name:'שקיפות וביקורת כלי AI',max:{'5':3,'3':10},desc:'תיעוד בחוברת של שלבי השימוש ב־AI לכתיבת קוד, תיקון שגיאות או סימולציה, לצד הבנת היכולות ותיקוף התוצרים.',cue:'בקש דוגמה מתועדת להצעת AI שנבדקה, תוקנה או נדחתה.'}
+ ]}
+];
+
+// שלבי הבחינה. q: [שאלה, רמז, חלק I, סוג הערכה, חדש?]
+const STAGES=[
+ {name:'הצגת הפרויקט',mins:4,tag:'מטרות, אדריכלות וקשר לתחומים אחרים',desc:'התלמיד מסביר מה המערכת עושה, מציג את תרשים המלבנים ואת זרימת המידע, ומקשר את הפתרון לתחומי ידע מחוץ לאלקטרוניקה.',
+  q:[['מה הבעיה שהפרויקט פותר ואילו דרישות עליו למלא?','חפש מטרה, קלטים, פלטים ותנאי הצלחה ברורים.','A','know'],
+     ['הסבר את תרשים המלבנים ואת סדר הפעולות.','בקש להצביע על קלט, עיבוד, בקרה ופעולה.','A','know'],
+     ['מה היה החלק שלך בתכן ובהקמת המערכת?','חפש ידע אישי ובחירות תכנון מנומקות.','A','comp'],
+     ['איזה ידע מחוץ לאלקטרוניקה היה דרוש לפרויקט?','פיזיקה, מתמטיקה, עיצוב מוצר, צרכי המשתמש, ענן או ניהול פרויקט. בקש דוגמה קונקרטית.','C','comp',1]],
+  ind:[{id:'sys',name:'הסבר מערכת',desc:'מטרה, קלטים ופלטים',i:'A',t:'know'},{id:'flow',name:'זרימת מידע',desc:'רכיבים והקשרים ביניהם',i:'A',t:'know'},{id:'indep',name:'עצמאות',desc:'מנמק בחירות תכנוניות',i:'A',t:'comp'},{id:'cross',name:'קישור בין תחומים',desc:'מחבר את הפתרון לתחום ידע נוסף',i:'C',t:'comp'}]},
+ {name:'ידע הנדסי והעמקה',mins:9,tag:'רכיבים, מעגלים, פרוטוקולים ונושא העמקה',desc:'הבוחן בודק את ההבנה של הרכיבים, המאפיינים החשמליים, החיבורים והתקשורת, ואז צולל עם התלמיד לעומק נושא אחד שבחר (D).',
+  q:[['בחר רכיב מרכזי והסבר איך הוא פועל פיזיקלית וחשמלית.','אפשר לבקש תפקיד, אות כניסה, אות יציאה ונתונים מדף נתונים.','A','know'],
+     ['מדוע נבחרו רמות המתח והחיבורים האלה?','בדוק זרם, מתח, הגנות, אספקת כוח והתאמה לבקר.','A','know'],
+     ['איך נשלחים נתונים בין הרכיבים?','לפי הפרויקט: I²C, SPI, UART, OneWire או פרוטוקול אחר.','A','know']],
+  deep:[['תאר את נושא ההעמקה ״מבפנים״, רמה אחת מתחת למה שרואים בפרויקט.','למשל במסגרת I²C: Start, כתובת, R/W, ACK, נתון, Stop.','D','know'],
+        ['מה הגבולות של הנושא? מתי זה מפסיק לעבוד?','זרם מרבי, מהירות, אורך כבל, התנגשות כתובות, רעש, חום.','D','comp'],
+        ['הראה איפה הנושא מופיע בפרויקט שלך ואיך מדדת או בדקת אותו.','מדידה, לוג, סקופ, דף נתונים או ניסוי שהתלמיד ביצע.','D','perf']],
+  ind:[{id:'comp',name:'ידע רכיבים',desc:'מכיר עקרונות פעולה',i:'A',t:'know'},{id:'elec',name:'הבנה חשמלית',desc:'מנמק חיבורים ומתח',i:'A',t:'know'},{id:'comm',name:'הבנת תקשורת',desc:'מסביר זרימת אותות ומידע',i:'A',t:'know'},{id:'dDepth',name:'עומק בנושא ההעמקה',desc:'מסביר מנגנון ברמה מתחת לפרויקט',i:'D',t:'know'},{id:'dApply',name:'יישום ההעמקה',desc:'מכיר גבולות ומדגים בפרויקט',i:'D',t:'comp'}]},
+ {name:'קוד ותוכנה',mins:5,tag:'לוגיקה, מודולריות ו־AI',desc:'התלמיד מסביר פונקציות מרכזיות, החלטות בקרה והפרדה בין קוד דרייברים ללוגיקה; יוכל לנתח ולהציע שינוי בקוד.',
+  q:[['בחר פונקציה בקוד והסבר מה עושה כל שלב.','בדוק קלט, תנאים, פעולות ופלט.','A','know'],
+     ['איזה חלק אחראי לתקשורת ואיזה חלק לקבלת החלטה?','חפש הבחנה בין דרייבר, לוגיקה ופעולה.','A','know'],
+     ['הצע שינוי קטן בקוד והסבר את השפעתו.','אפשר לבחון בעזרת AI; סעיף המחוון אינו מחייב מימוש מעשי.','B','comp']],
+  ind:[{id:'codeExp',name:'הסבר קוד',desc:'שולט בלוגיקה',i:'A',t:'know'},{id:'struct',name:'מבנה תוכנה',desc:'מבין מודולים וממשקים',i:'A',t:'know'},{id:'change',name:'חשיבה על שינוי',desc:'מנבא השפעה על המערכת',i:'A',t:'comp'}]},
+ {name:'הפעלה ובדיקות',mins:6,tag:'פעולה אמיתית ומדידות',desc:'התלמיד מפעיל את הפרויקט שלו, מדגים תרחיש עבודה תקין ומציג ראיות לבדיקה או לאיתור תקלה.',
+  q:[['הפעל את הפרויקט והדגם תוצאה צפויה.','הפעלה פיזית של המערכת עצמה, לא רק הצגת תמונות.','A','perf'],
+     ['איך היית בודק רכיב שאינו מגיב?','בקש דרך אבחון שיטתית וכלי מדידה מתאים.','A','comp'],
+     ['הצג מדידה, לוג או תוצאת בדיקה המעידים על תקינות.','חפש התאמה בין דרישה, תוצאה צפויה ותוצאה שהתקבלה.','A','perf']],
+  ind:[{id:'run',name:'הפעלה',desc:'מפעיל את המערכת',i:'A',t:'perf'},{id:'debug',name:'איתור תקלות',desc:'מציע בדיקה מבדלת',i:'A',t:'comp'},{id:'proof',name:'ראיות',desc:'מפרש מדידה או לוג',i:'A',t:'perf'}]},
+ {name:'כשירות AI, אתיקה ופתיחות',mins:6,tag:'החלק העליון והבסיס של ה־I',desc:'השלב בוחן כשירות: שילוב מושכל של AI בעבודה ההנדסית, ביקורת ותיקוף, וגם את הבסיס של ה־I: אתיקה מקצועית ופתיחות. התצפיות כאן אינן מוסיפות נקודות למחוון הרשמי, אבל נכנסות לפרופיל ה־I.',
+  q:[['היכן נעזרת ב־AI ומה עשית בעצמך כדי להתאים את התוצר למערכת?','דרוש דוגמה אמיתית מתוך קוד, תכן או תיקון תקלה.','B','comp'],
+     ['הראה הצעה של AI שלא התאימה כפי שהיא. כיצד זיהית זאת?','חפש בדיקה מול מגבלות שפה, בקר, חומרה או תוצאה מדודה.','B','comp'],
+     ['כיצד אימתת שהשינוי או ההחלטה היו נכונים?','ראיית קוד, לוג, מדידה, בדיקת מערכת או דיווח תיעוד.','B','perf'],
+     ['אילו סיכוני בטיחות או פרטיות יש במערכת, ואיך טיפלת בהם?','עצירה בניתוק, מתחים וזרמים, מצלמה ונתונים אישיים, סיסמאות.','E','val',1],
+     ['למי מגיע קרדיט בפרויקט, ואיך זה מתועד?','ספריות, קוד פתוח, כלי AI, שותפים. חפש כנות ושקיפות.','E','val',1]],
+  ind:[{id:'integ',name:'אינטגרציה',desc:'מחבר תוצר AI להקשר ההנדסי',i:'B',t:'comp'},{id:'critic',name:'ביקורת עצמאית',desc:'מזהה מגבלה ומנמק החלטה',i:'B',t:'comp'},{id:'verify',name:'בדיקה ותיקוף',desc:'מוכיח התאמה על סמך ראיות',i:'B',t:'comp'},{id:'ethics',name:'אתיקה מקצועית',desc:'בטיחות, פרטיות וקרדיט',i:'E',t:'val'},{id:'open',name:'פתיחות',desc:'מקבל שאלה מאתגרת או ביקורת בענייניות',i:'E',t:'val'}]}
+];
+const SPECIFIC={
+ sensors:[['מהו סוג האות שמגיע מהחיישן וכיצד הבקר קורא אותו?','בקש הצבעה על GPIO או על תרשים.'],['מה יקרה אם תשתנה הגדרת פין?','הבחן בין שינוי בתוכנה לבין שינוי בחיווט.'],['איזו מדידה תבצע כדי להבחין בין חיישן תקול לקוד לא תקין?','בקש השערה ובדיקה.'],['הדגם תגובת המנוע או הרכיב לשינוי מצב החיישן.','אפשר לבקש לוג או מתח מוצא.'],['AI הציע קוד שאינו תואם לגרסת MicroPython. כיצד תבדוק ותתקן?','הדגש את התאמת התוצר לרכיבי הפרויקט.']],
+ iot:[['כיצד עובר המידע מהחיישן לשרת או לבקר?','הצג מסלול נתונים.'],['מה קורה כאשר התקשורת מתנתקת?','הסבר מנגנון חזרה/Timeout.'],['היכן מתבצעים שליחה, קליטה ובדיקת שגיאות בקוד?','בקש קטע קוד אמיתי.'],['כיצד תבדוק זמן תגובה ואמינות תקשורת?','בדיקת לוגים, הודעות חוזרות או זמן.'],['כלי AI הציע לבצע ניסיונות חוזרים. איזה סיכון יש בלולאה שאינה מסתיימת?','בדוק התאמה למגבלות המערכת.']],
+ ai:[['מה מפיק מודל ה־AI ומי מקבל את התוצאה?','בקש להראות את הממשק.'],['כיצד תוצאה של מודל משפיעה על פעולת הבקר?','הבחן בין זיהוי להחלטת בקרה.'],['איך הקוד מפענח ומאמת את תשובת המודל?','בקש להציג את מבנה הנתונים.'],['הדגם זיהוי והשפעתו על המערכת הפיזית.','בדוק תוצאה ומדידה.'],['המודל מחזיר פלט אך המפעיל אינו מגיב: כיצד תבודד את מקור התקלה?','שאל על מודל, תקשורת, בקר והנעה.']],
+ other:[['מהו מבנה המערכת ומדוע נבחר?','הדגש ידע אישי.'],['מהו האתגר ההנדסי המרכזי ואיך נפתר?','דרוש נימוק.'],['בחר קטע קוד עם תנאי או לולאה והסבר אותו.','בדוק הסבר עצמאי.'],['הדגם פעולה ובדיקה שמוכיחה עמידה בדרישה.','הפעלה וראיה.'],['מה הציע כלי AI בפרויקט, ומה היה צורך לתקן או לאמת?','לא להסתפק בהעתקה של תשובה.']]
+};
+const SPECIFIC_TAGS=[['A','know'],['A','know'],['A','know'],['A','perf'],['B','comp']];
+const STAGE_ITEMS=[['body','steam'],['hardware','complexity'],['aicode','deepcode'],['running','finish','faults','documentation'],['transparency']];
+const EVIDENCES=['הדגמה פיזית','תרשים','קוד','מדידה','לוג','תיעוד חוברת','תיעוד שימוש ב־AI'];
+const D_TOPICS=['תקשורת I²C','SPI','UART','PWM ובקרת מנועים','דוחף זרם / גשר H','ספק כוח וייצוב מתח','חיישן מרכזי ודף הנתונים שלו','אימון מודל AI'];
+const LEVELS=['לא הודגם','חלקי','הודגם'];
+
+const ALL_IND=STAGES.flatMap(s=>s.ind);
+const ALL_ITEMS=GROUPS.flatMap(g=>g.items);
+const itemById=id=>ALL_ITEMS.find(it=>it.id===id);
+
+const blank=()=>({project:'',candidate:'',type:'sensors',track:'5',view:'stage',stage:0,obs:{},notes:{},evidence:{},official:{},criterionNotes:{},finalGrade:{},challenge:'',dTopic:'',elapsed:0,phaseElapsed:[0,0,0,0,0],running:false});
+function sanitize(x){let s={...blank(),...x};s.running=false;s.stage=Math.min(4,Math.max(0,Number(s.stage)||0));if(!Array.isArray(s.phaseElapsed)||s.phaseElapsed.length!==5)s.phaseElapsed=[0,0,0,0,0];s.track=s.track==='3'?'3':'5';['obs','notes','evidence','official','criterionNotes','finalGrade'].forEach(k=>{if(!s[k]||typeof s[k]!=='object')s[k]={};});if(!['stage','rubric','summary'].includes(s.view))s.view='stage';if(!SPECIFIC[s.type])s.type='sensors';return s;}
+function read(){try{let x=JSON.parse(localStorage.getItem(KEY));if(x&&typeof x==='object')return sanitize(x);}catch(e){}return blank();}
+let state=read(),interval=null,toastTimeout;
+const $=s=>document.getElementById(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function persist(){try{localStorage.setItem(KEY,JSON.stringify({...state,running:false}));}catch(e){}}
+function notify(m){$('toast').textContent=m;$('toast').classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>$('toast').classList.remove('show'),2600);}
+const timefmt=sec=>`${String(Math.floor(Math.max(0,sec)/60)).padStart(2,'0')}:${String(Math.floor(Math.max(0,sec)%60)).padStart(2,'0')}`;
+const isObs=v=>[0,1,2].includes(v);
+const obsCount=()=>ALL_IND.filter(d=>isObs(state.obs[d.id])).length;
+const scoreOf=id=>{const v=state.official[id]?.[state.track];return Number.isInteger(v)?v:null;};
+const totalRubricMax=()=>ALL_ITEMS.reduce((a,it)=>a+(it.max[state.track]||0),0);
+const categorySum=g=>g.items.reduce((a,it)=>a+(it.max[state.track]==null?0:(scoreOf(it.id)??0)),0);
+const scoredCount=()=>ALL_ITEMS.filter(it=>it.max[state.track]!=null&&scoreOf(it.id)!=null).length;
+const possibleCount=()=>ALL_ITEMS.filter(it=>it.max[state.track]!=null).length;
+const pointsSum=()=>GROUPS.reduce((a,g)=>a+categorySum(g),0);
+const ichip=k=>`<span class="ichip k-${k}" title="${esc(IPARTS[k].name)}">${esc(IPARTS[k].letter)}</span>`;
+const tchip=t=>`<span class="tchip t-${t}">${esc(TYPES[t].name)}</span>`;
+
+// פרופיל: ממוצע של כל הראיות (ניקוד מחוון יחסי + תצפיות 0-2)
+function profile(field,keys){const r={};keys.forEach(k=>r[k]={s:0,n:0,w:0});
+ ALL_ITEMS.forEach(it=>{const m=it.max[state.track];if(m==null)return;const k=it[field];r[k].w+=m;const v=scoreOf(it.id);if(v!=null){r[k].s+=v/m;r[k].n++;}});
+ ALL_IND.forEach(d=>{const v=state.obs[d.id];if(isObs(v)){r[d[field]].s+=v/2;r[d[field]].n++;}});
+ keys.forEach(k=>{r[k].pct=r[k].n?Math.round(r[k].s/r[k].n*100):null;});return r;}
+const level=p=>p==null?'עדיין לא נבדק':p>=80?'חזק':p>=55?'מתפתח':'לחיזוק';
+
+function ibar(k,p,mode){const P=IPARTS[k];let body=`<div class="ilet">${esc(P.letter)}</div><div class="iname">${esc(P.name)}</div>`;
+ if(mode==='profile'){const r=p[k];body+=`<div class="ipct ltr">${r.pct==null?'—':r.pct+'%'}</div><div class="ilvl">${level(r.pct)}${r.n?` · ${r.n} ראיות`:''}</div><div class="meter"><i style="width:${r.pct||0}%"></i></div>`;}
+ return `<div class="ibar ${P.cls}">${body}</div>`;}
+function ishape(p,mode,mini){return `<div class="ishape${mini?' mini':''}" role="img" aria-label="מודל I"><div class="i-top">${ibar('B',p,mode)}${ibar('C',p,mode)}</div><div class="i-stem">${ibar('A',p,mode)}${ibar('D',p,mode)}</div>${ibar('E',p,mode)}</div>`;}
+
+function changeView(v){state.view=v;persist();render();document.querySelector('.main').scrollIntoView({behavior:'smooth',block:'start'});}
+function goStage(i){if(i<0||i>4)return;state.stage=i;state.view='stage';persist();render();$('stageView').scrollIntoView({behavior:'smooth',block:'start'});}
+function renderNav(){const isStage=state.view==='stage';
+ $('stepNav').innerHTML=STAGES.map((s,i)=>`<button class="navbtn ${isStage&&state.stage===i?'active':''}" data-step="${i}" type="button" aria-current="${isStage&&state.stage===i?'step':'false'}"><span class="navicon">${i+1}</span><span class="detail"><strong>${esc(s.name)}</strong><small>${s.mins} דקות</small></span>${s.ind.every(d=>isObs(state.obs[d.id]))?'<span class="check">✓</span>':''}</button>`).join('');
+ document.querySelectorAll('[data-step]').forEach(b=>b.addEventListener('click',()=>goStage(Number(b.dataset.step))));
+ $('navRubric').classList.toggle('active',state.view==='rubric');$('navSummary').classList.toggle('active',state.view==='summary');
+ const n=obsCount(),t=ALL_IND.length;$('progressText').textContent=`${n} / ${t}`;$('progressFill').style.width=`${n/t*100}%`;}
+
+function qcard(item,num){const [q,h,i,t,isNew]=item;return `<article class="question${isNew?' new':''}"><span class="num">${num}</span><div class="qbody"><strong>${esc(q)}</strong><small>${esc(h)}</small><div class="chips">${ichip(i)}${tchip(t)}${isNew?'<span class="tchip" style="background:#fff;border:1px solid #BDE9E2">חדש במודל I</span>':''}</div></div></article>`;}
+function questionGrid(i){const sp=SPECIFIC[state.type][i],tg=SPECIFIC_TAGS[i];const q=[...STAGES[i].q,[sp[0],sp[1]+' (שאלה לפי סוג הפרויקט)',tg[0],tg[1]]];return q.map((it,j)=>qcard(it,j+1)).join('');}
+function indicators(i){return STAGES[i].ind.map(d=>{const v=state.obs[d.id];return `<div class="lite"><div class="lhead"><strong>${esc(d.name)}</strong><div class="chips">${ichip(d.i)}</div></div><p>${esc(d.desc)} · <span style="color:var(--teal-d);font-weight:700">${esc(TYPES[d.t].name)}</span></p><div class="scale" role="group" aria-label="רמת ביצוע ${esc(d.name)}">${[0,1,2].map(n=>`<button type="button" data-observation="${d.id}" data-value="${n}" aria-pressed="${v===n}" class="${n===0?'bad':n===1?'mid':''}">${n}<small>${LEVELS[n]}</small></button>`).join('')}</div></div>`;}).join('');}
+function evidenceChips(i){const c=state.evidence[i]||[];return EVIDENCES.map(x=>`<label class="checkitem ${c.includes(x)?'checked':''}"><input type="checkbox" data-evidence="${esc(x)}" ${c.includes(x)?'checked':''}>${esc(x)}</label>`).join('');}
+function stageFocus(i){const s=STAGES[i];const items=STAGE_ITEMS[i].map(itemById).filter(it=>it.max[state.track]!=null);
+ const is=new Set([...s.ind.map(d=>d.i),...items.map(it=>it.i)]),ts=new Set([...s.ind.map(d=>d.t),...items.map(it=>it.t)]);
+ return `<div class="focusline"><div>מודל I: ${IORDER.filter(k=>is.has(k)).map(ichip).join('')}</div><div>סוג הערכה: ${TORDER.filter(t=>ts.has(t)).map(tchip).join('')}</div></div>`;}
+function deepBox(){const s=STAGES[1];return `<div class="special d"><h3>${ichip('D')} העמקה בנושא אחד</h3><p>התלמיד בוחר מראש נושא אחד מהפרויקט ומראה שהוא מבין אותו לעומק. אם לא נבחר נושא, הבוחן בוחר נושא מרכזי מתוך הפרויקט.</p><label class="field"><span>נושא ההעמקה</span><input id="dTopic" maxlength="80" value="${esc(state.dTopic)}" placeholder="לדוגמה: תקשורת I²C"></label><div class="topicchips">${D_TOPICS.map(t=>`<button type="button" data-topic="${esc(t)}">${esc(t)}</button>`).join('')}</div><div class="qgrid">${s.deep.map((it,j)=>qcard(it,'D'+(j+1))).join('')}</div></div>`;}
+function aiBox(){return `<div class="special b"><h3>${ichip('B')} אתגר כשירות מותאם לפרויקט</h3><p>בקש ראיה לשימוש ב־AI לצורך תכנון, קוד או פתרון תקלה, ובדוק התאמה לחומרה, להיגיון ההנדסי ולתוצאות. אם הפרויקט כולל מודל AI, בדוק גם את שילוב תוצאת המודל בבקר.</p><div class="suggested"><b>דוגמה:</b> הצעת AI אינה תואמת להגדרת פין, לשפת התכנות או לפרוטוקול. כיצד התלמיד מזהה את אי־ההתאמה? איזה שינוי היה מציע וכיצד היה מאמת אותו?</div><label class="field"><span>אתגר הבוחן שהוצג בפועל (רשות)</span><textarea id="challenge" placeholder="תאר משימה קצרה ומותאמת לפרויקט...">${esc(state.challenge)}</textarea></label><div class="tipbox amber">לפי הסעיף ״הבנת קוד תוך שימוש ב־AI״ ניתן לבחון ניתוח והצעת שינוי <b>ללא מימוש בפועל</b>. ההפעלה והמדידות מוערכות בסעיפים האחרים.</div></div>`;}
+function stageScoreBox(i){const rows=STAGE_ITEMS[i].map(itemById).filter(it=>it.max[state.track]!=null);if(!rows.length)return '';return `<div class="stage-score"><div class="stage-score-head"><h3>✎ ניקוד המחוון בשלב זה</h3><b class="ltr" id="stageSum">${stageSum(i)} / ${stageMax(i)}</b></div>${rows.map(rubricRow).join('')}</div>`;}
+const stageSum=i=>STAGE_ITEMS[i].reduce((a,id)=>{const it=itemById(id);if(it.max[state.track]==null)return a;return a+(scoreOf(id)??0);},0);
+const stageMax=i=>STAGE_ITEMS[i].reduce((a,id)=>a+(itemById(id).max[state.track]||0),0);
+
+function renderStage(){const i=state.stage,s=STAGES[i];
+ $('stageView').innerHTML=`<div class="stage-top"><div><span class="pill">שלב ${i+1} מתוך 5 · ${esc(s.tag)}</span><h2 style="margin-top:11px">${esc(s.name)}</h2><p>${esc(s.desc)}</p>${stageFocus(i)}</div><div class="timepill"><b class="ltr">${String(s.mins).padStart(2,'0')}:00</b><small>זמן מוצע</small></div></div>
+ <div class="stage-inner">${i===4?aiBox():''}
+ <div class="subsection"><span class="roundicon">?</span><h3>שאלות מנחות לבוחן</h3></div><div class="qgrid">${questionGrid(i)}</div>
+ ${i===1?'<div class="blockline"></div>'+deepBox():''}
+ <div class="blockline"></div>
+ <div class="split" style="margin-bottom:12px"><div class="subsection" style="margin:0"><span class="roundicon">✓</span><h3>תצפית מקצועית</h3></div><small class="muted">0 לא הודגם · 1 חלקי · 2 הודגם</small></div>
+ <div class="criteria-lite">${indicators(i)}</div>
+ <div class="tipbox teal">התצפיות <b>לא משנות את הניקוד הרשמי</b>. הן בונות את פרופיל ה־I ואת פרופיל סוגי ההערכה של התלמיד. מדד שלא נבדק, השאר בלי סימון.</div>
+ <div class="blockline"></div>
+ <div class="subsection"><span class="roundicon">◉</span><h3>איזו ראיה הוצגה?</h3></div><div class="checks">${evidenceChips(i)}</div>
+ <label class="field" style="margin-top:16px"><span>הערת הבוחן: מה התלמיד הסביר או הדגים בפועל?</span><textarea id="stageNote" placeholder="למשל: הסביר את מסגרת ה־I²C, הציג לוג תקשורת, נימק תיקון שהוצע ב־AI...">${esc(state.notes[i]||'')}</textarea></label>
+ ${stageScoreBox(i)}
+ <div class="step-actions"><button class="btn" id="toRubric" type="button">◫ כל המחוון והציון הסופי</button><div class="actions-right"><button class="btn" id="prev" type="button" ${i===0?'disabled':''}>→ הקודם</button><button class="btn primary" id="next" type="button">${i===4?'לפרופיל I ולסיכום ←':'השלב הבא ←'}</button></div></div></div>`;
+ document.querySelectorAll('[data-observation]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.observation,val=Number(b.dataset.value);if(state.obs[id]===val)delete state.obs[id];else state.obs[id]=val;persist();renderNav();renderStage();}));
+ document.querySelectorAll('[data-evidence]').forEach(b=>b.addEventListener('change',()=>{const arr=state.evidence[i]||[];state.evidence[i]=b.checked?[...new Set([...arr,b.dataset.evidence])]:arr.filter(x=>x!==b.dataset.evidence);persist();renderStage();}));
+ $('stageNote').addEventListener('input',e=>{state.notes[i]=e.target.value;persist();});
+ if(i===4)$('challenge').addEventListener('input',e=>{state.challenge=e.target.value;persist();});
+ if(i===1){$('dTopic').addEventListener('input',e=>{setTopic(e.target.value,false);});document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>{setTopic(b.dataset.topic,true);}));}
+ bindScoreInputs($('stageView'));$('prev').addEventListener('click',()=>goStage(i-1));$('next').addEventListener('click',()=>i===4?changeView('summary'):goStage(i+1));$('toRubric').addEventListener('click',()=>changeView('rubric'));}
+function setTopic(v,updateStageInput){state.dTopic=v;persist();if($('dTopicTop').value!==v)$('dTopicTop').value=v;if(updateStageInput&&$('dTopic'))$('dTopic').value=v;}
+
+function bindScoreInputs(root){
+ root.querySelectorAll('[data-official]').forEach(inp=>inp.addEventListener('input',e=>{const id=e.target.dataset.official,raw=e.target.value,max=itemById(id).max[state.track];
+  if(raw===''){if(state.official[id])delete state.official[id][state.track];e.target.setCustomValidity('');persist();refreshScoreNumbers();return;}
+  const n=Number(raw);if(!Number.isInteger(n)||n<0||n>max){e.target.setCustomValidity(`בחר מספר שלם בין 0 ל־${max}`);e.target.reportValidity();return;}
+  e.target.setCustomValidity('');state.official[id]={...(state.official[id]||{}),[state.track]:n};persist();refreshScoreNumbers();}));
+ root.querySelectorAll('[data-criterion-note]').forEach(inp=>inp.addEventListener('input',e=>{const id=e.target.dataset.criterionNote;state.criterionNotes[id]={...(state.criterionNotes[id]||{}),[state.track]:e.target.value};persist();}));}
+const finalGrade=()=>{const v=(state.finalGrade||{})[state.track];return Number.isInteger(v)?v:null;};
+function finalGradeBox(){const v=finalGrade();return `<div class="final-grade"><div><h3>ציון סופי של הבוחן</h3><p>סכום הסעיפים שהוזנו: <b class="ltr" data-sum>${pointsSum()} / ${totalRubricMax()}</b>. הבוחן קובע את הציון הסופי (0–100).</p></div><div class="fg-ctrl"><input class="entry-input" id="finalGrade" type="number" inputmode="numeric" min="0" max="100" step="1" placeholder="—" value="${v??''}" aria-label="ציון סופי"><em>/100</em><button class="btn sm no-print" id="useSum" type="button">השתמש בסכום הסעיפים</button></div></div>`;}
+function bindFinalGrade(){const inp=$('finalGrade');if(!inp)return;const set=raw=>{if(raw===''){delete state.finalGrade[state.track];inp.setCustomValidity('');persist();return;}const n=Number(raw);if(!Number.isInteger(n)||n<0||n>100){inp.setCustomValidity('בחר מספר שלם בין 0 ל־100');inp.reportValidity();return;}inp.setCustomValidity('');state.finalGrade[state.track]=n;persist();};
+ inp.addEventListener('input',e=>set(e.target.value));$('useSum').addEventListener('click',()=>{inp.value=pointsSum();set(String(pointsSum()));notify('הציון עודכן לפי סכום הסעיפים');});}
+function rubricRow(item){const m=item.max[state.track];const title=`<div class="ctitle">${ichip(item.i)}<strong>${esc(item.name)}</strong>${tchip(item.t)}</div>`;
+ if(m==null)return `<div class="criterion"><div>${title}<p class="desc">${esc(item.desc)}</p></div><div class="notapp">לא חל במסלול ${state.track} יח״ל</div></div>`;
+ const v=scoreOf(item.id);return `<div class="criterion"><div>${title}<div class="desc">${esc(item.desc)}</div><div class="cue">◂ ${esc(item.cue)}</div></div><div class="criterion-controls"><label for="s_${item.id}_${state.view}">ניקוד מתוך ${m}</label><div class="score-field"><input class="entry-input" id="s_${item.id}_${state.view}" type="number" inputmode="numeric" min="0" max="${m}" step="1" placeholder="—" value="${v??''}" data-official="${item.id}" aria-label="ניקוד ${esc(item.name)}"><em>/${m}</em></div><input class="entry-input" type="text" maxlength="220" data-criterion-note="${item.id}" placeholder="ראיה / הערה קצרה" value="${esc(state.criterionNotes[item.id]?.[state.track]||'')}"></div></div>`;}
+const gapNotice=()=>state.track==='5'?`<div class="notice warning" style="margin-bottom:0"><span class="mark">⚠</span><div><strong>פער של 3 נקודות בצילומים ל־5 יח״ל:</strong> בחוברת העבודה מופיע סך 15 נקודות, אבל שלושת סעיפי המשנה מסתכמים ב־12 (3+6+3). לכן מוצגות עד 97 נקודות מפורטות מתוך 100, והפער לא מושלם באופן שרירותי. יש לבדוק מול המקור הרשמי.</div></div>`:'';
+function renderRubric(){const groups=GROUPS.map(g=>{const cap=g.cap[state.track],detail=g.items.reduce((a,it)=>a+(it.max[state.track]||0),0);return `<div class="rubric-group"><div class="rubric-group-header"><div><h3>${esc(g.name)}</h3><small>לפי טבלת המפמ״ר · ${state.track} יח״ל</small></div><div class="group-total"><span class="ltr">${categorySum(g)} / ${cap}</span> נק׳</div></div>${g.items.map(rubricRow).join('')}</div>`;}).join('');
+ $('rubricView').innerHTML=`<div class="rubric-intro"><div class="panel-head"><div><span class="pill">משקלי הסעיפים מהצילום · כל סעיף משויך למודל I ולסוג הערכה</span><h2 style="margin-top:10px">מחוון ההערכה · ${state.track} יח״ל</h2><p>הזן ניקוד לכל סעיף. ״לא נבדק״ אינו אפס. התגיות מראות לאיזה חלק ב־I ולאיזה סוג הערכה הסעיף שייך.</p></div><button class="btn sm no-print" id="toStages" type="button">→ חזרה לשלבי הבחינה</button></div><div class="score-summary"><div class="stat"><strong class="ltr" data-sum>${pointsSum()} / ${totalRubricMax()}</strong><span>ניקוד סעיפים מפורטים</span></div><div class="stat"><strong class="ltr" data-scored>${scoredCount()} / ${possibleCount()}</strong><span>סעיפים שתועדו</span></div><div class="stat"><strong>100</strong><span>סך המחוון המוצהר</span></div></div>${gapNotice()}</div><div class="groups">${groups}</div><div style="padding:0 24px 22px">${finalGradeBox()}</div><div class="rubric-foot"><b>הערה:</b> קטגוריות, משקלים וקריטריונים הועתקו מצילומי טבלת ההערכה. השיוך למודל I ולסוגי ההערכה, הניסוחים והשאלות הם עזר פדגוגי.</div>`;
+ $('toStages').addEventListener('click',()=>changeView('stage'));bindScoreInputs($('rubricView'));bindFinalGrade();}
+function refreshScoreNumbers(){document.querySelectorAll('[data-sum]').forEach(x=>x.textContent=`${pointsSum()} / ${totalRubricMax()}`);document.querySelectorAll('[data-scored]').forEach(x=>x.textContent=`${scoredCount()} / ${possibleCount()}`);
+ if($('stageSum')&&state.view==='stage')$('stageSum').textContent=`${stageSum(state.stage)} / ${stageMax(state.stage)}`;
+ const view=$(state.view+'View');GROUPS.forEach((g,i)=>{const x=view.querySelectorAll('.group-total .ltr')[i];if(x)x.textContent=`${categorySum(g)} / ${g.cap[state.track]}`;});
+ if(state.view==='summary')renderProfiles();}
+
+function weightLine(pI){return 'משקל כל חלק במחוון הרשמי ('+state.track+' יח״ל): '+IORDER.map(k=>`${IPARTS[k].letter} <b class="ltr">${pI[k].w}</b>`).join(' · ')+' נקודות';}
+function feedbackHtml(pI,pT){const tested=[...IORDER.map(k=>({k,label:IPARTS[k].letter+' · '+IPARTS[k].name,p:pI[k].pct})),...TORDER.map(t=>({k:t,label:'סוג הערכה: '+TYPES[t].name,p:pT[t].pct}))].filter(x=>x.p!=null);
+ if(!tested.length)return `<div class="tipbox" style="margin-top:16px">הפרופיל יתמלא כשתסמן תצפיות בשלבי הבחינה או תזין ניקוד במחוון.</div>`;
+ const strong=tested.filter(x=>x.p>=80).sort((a,b)=>b.p-a.p).slice(0,3),grow=tested.filter(x=>x.p<55).sort((a,b)=>a.p-b.p).slice(0,3);
+ const untested=IORDER.filter(k=>pI[k].pct==null).map(k=>IPARTS[k].letter);
+ return `<div class="feedback"><div class="fb good"><b>חוזקות</b>${strong.length?strong.map(x=>esc(x.label)+` (<span class="ltr">${x.p}%</span>)`).join('<br>'):'עדיין אין חלק ברמת ״חזק״.'}</div><div class="fb grow"><b>לחיזוק</b>${grow.length?grow.map(x=>esc(x.label)+` (<span class="ltr">${x.p}%</span>)`).join('<br>'):'אין חלק ברמת ״לחיזוק״.'}${untested.length?`<br><span style="opacity:.85">לא נבדקו: ${untested.map(esc).join(', ')}</span>`:''}</div></div>`;}
+function renderProfiles(){const pI=profile('i',IORDER),pT=profile('t',TORDER);const box=$('profiles');if(!box)return;
+ box.innerHTML=`<div class="profile-card"><h3><span>פרופיל ה־I של התלמיד</span><span class="pill dark">מודל I</span></h3>${ishape(pI,'profile')}<div class="weightline">${weightLine(pI)}</div></div>
+ <div class="profile-card"><h3><span>פרופיל סוגי ההערכה</span><span class="pill">כולל כשירות</span></h3>${TORDER.map(t=>{const r=pT[t];return `<div class="trow t-${t}"><div><b>${esc(TYPES[t].name)}</b><small>${esc(TYPES[t].desc.split(':')[0])}</small></div><div class="tbar"><i style="width:${r.pct||0}%"></i></div><div class="tval">${r.pct==null?'—':r.pct+'%'}</div></div>`;}).join('')}<div class="weightline">משקל במחוון הרשמי: ${TORDER.map(t=>`${esc(TYPES[t].name)} <b class="ltr">${pT[t].w}</b>`).join(' · ')}</div></div>`;
+ $('feedbackBox').innerHTML=feedbackHtml(pI,pT);}
+
+function textReport(){const pI=profile('i',IORDER),pT=profile('t',TORDER);
+ const L=['מגמת אלקטרוניקה ומחשבים — תיעוד בחינת פרויקט גמר במודל I','כלי עזר בלבד; לא ציון רשמי','תאריך: '+new Date().toLocaleDateString('he-IL'),'מסלול: '+state.track+' יח״ל','פרויקט: '+(state.project||'לא צוין'),'קוד נבחן: '+(state.candidate||'לא צוין'),'נושא העמקה (D): '+(state.dTopic||'לא צוין'),'זמן שחלף: '+timefmt(state.elapsed),''];
+ L.push('=== פרופיל I ===');IORDER.forEach(k=>L.push(IPARTS[k].letter+' · '+IPARTS[k].name+': '+(pI[k].pct==null?'לא נבדק':pI[k].pct+'% ('+level(pI[k].pct)+')')));
+ L.push('','=== סוגי הערכה ===');TORDER.forEach(t=>L.push(TYPES[t].name+': '+(pT[t].pct==null?'לא נבדק':pT[t].pct+'%')));L.push('');
+ STAGES.forEach((s,i)=>{L.push('=== '+s.name+' ===');s.ind.forEach(d=>{const v=state.obs[d.id];L.push('['+IPARTS[d.i].letter+' | '+TYPES[d.t].name+'] '+d.name+': '+(isObs(v)?LEVELS[v]:'לא נבדק'));});L.push('ראיות: '+((state.evidence[i]||[]).join(', ')||'לא צוינו'));L.push('הערה: '+(state.notes[i]||'לא צוינה'));L.push('');});
+ L.push('=== מחוון '+state.track+' יח״ל ===');GROUPS.forEach(g=>{L.push('['+g.name+'] '+categorySum(g)+'/'+g.cap[state.track]);g.items.forEach(it=>{if(it.max[state.track]==null)return;const v=scoreOf(it.id);L.push(' • '+it.name+' ['+IPARTS[it.i].letter+' | '+TYPES[it.t].name+']: '+(v??'לא נבדק')+'/'+it.max[state.track]);const n=state.criterionNotes[it.id]?.[state.track];if(n)L.push('   ראיה: '+n);});});
+ L.push('סכום סעיפים מפורטים: '+pointsSum()+'/'+totalRubricMax());L.push('ציון סופי של הבוחן: '+(finalGrade()??'לא נקבע')+'/100');
+ if(state.track==='5')L.push('אזהרת מקור: בטבלה המצולמת חסר פירוט של 3 נקודות מתוך 100.');if(state.challenge)L.push('אתגר כשירות AI: '+state.challenge);
+ L.push('השאלות, חלוקת הזמן והשיוך למודל I הם הצעה פדגוגית, לא הוראה רשמית.');return L.join('\n');}
+
+function renderSummary(){const cells=GROUPS.map(g=>`<tr class="grp-row"><td><strong>${esc(g.name)}</strong></td><td class="group-total" style="color:var(--teal-d)"><b class="ltr">${categorySum(g)} / ${g.cap[state.track]}</b></td><td></td></tr>`+g.items.filter(it=>it.max[state.track]!=null).map(it=>{const v=scoreOf(it.id);return `<tr><td class="item-name"><div class="chips">${ichip(it.i)}<span>${esc(it.name)}</span>${tchip(it.t)}</div></td><td><div class="score-field sum-field"><input class="entry-input" type="number" inputmode="numeric" min="0" max="${it.max[state.track]}" step="1" placeholder="—" value="${v??''}" data-official="${it.id}" aria-label="ניקוד ${esc(it.name)}"><em>/${it.max[state.track]}</em></div></td><td><input class="entry-input" type="text" maxlength="220" data-criterion-note="${it.id}" placeholder="ראיה / הערה קצרה" value="${esc(state.criterionNotes[it.id]?.[state.track]||'')}"></td></tr>`;}).join('')).join('');
+ const obsRows=STAGES.map((s,i)=>`<tr><td><strong>${esc(s.name)}</strong><div class="muted">${s.ind.map(d=>esc(IPARTS[d.i].letter)+' '+esc(d.name)+': '+(isObs(state.obs[d.id])?LEVELS[state.obs[d.id]]:'לא נבדק')).join(' · ')}</div></td><td>${(state.evidence[i]||[]).map(esc).join(', ')||'—'}</td><td>${esc(state.notes[i]||'—')}</td></tr>`).join('');
+ $('summaryView').innerHTML=`<div class="summary-pad"><div class="print-title"><h1>מגמת אלקטרוניקה ומחשבים — סיכום הערכה במודל I</h1><p>כלי עזר לבוחן | לא מחליף מחוון רשמי</p></div>
+ <div class="panel-head"><div><span class="pill">פרופיל I וסיכום</span><h2 style="margin-top:10px">תמונת התלמיד</h2><p>הפרופיל מחושב מכל הראיות: ניקוד המחוון (יחסית למקסימום) ותצפיות הבוחן (0–2). הוא לא משנה את הציון הרשמי.</p></div><span class="pill dark">${new Date().toLocaleDateString('he-IL')}</span></div>
+ <div class="sum-meta"><span><b>פרויקט:</b> ${esc(state.project||'לא צוין')}</span><span><b>מסלול:</b> ${state.track} יח״ל</span><span><b>קוד נבחן:</b> ${esc(state.candidate||'לא צוין')}</span><span><b>העמקה (D):</b> ${esc(state.dTopic||'לא צוין')}</span><span><b>משך:</b> <span class="ltr">${timefmt(state.elapsed)}</span></span></div>
+ <div class="profile-wrap" id="profiles"></div><div id="feedbackBox"></div>
+ <div class="score-summary"><div class="stat"><strong class="ltr" data-sum>${pointsSum()} / ${totalRubricMax()}</strong><span>סעיפים מפורטים</span></div><div class="stat"><strong class="ltr" data-scored>${scoredCount()} / ${possibleCount()}</strong><span>קריטריונים שנבדקו</span></div><div class="stat"><strong class="ltr">${obsCount()} / ${ALL_IND.length}</strong><span>תצפיות שתועדו</span></div></div>
+ ${finalGradeBox()}${state.track==='5'?'<div class="notice warning"><span class="mark">⚠</span><div>במסלול 5 יח״ל מופיעות בצילום 97 נקודות מפורטות לצד סך של 100. שלוש הנקודות החסרות לא חושבו.</div></div>':''}
+ <h3 style="margin-top:22px">קריטריוני מחוון המפמ״ר</h3><div class="table-scroll"><table class="reporttable"><thead><tr><th>מרכיב</th><th>ניקוד הבוחן</th><th>הערות</th></tr></thead><tbody>${cells}</tbody></table></div>
+ <h3 style="margin-top:22px">ראיות במהלך הבחינה</h3><div class="table-scroll"><table class="reporttable"><thead><tr><th>שלב והתרשמות</th><th>סוג הראיה</th><th>הערת הבוחן</th></tr></thead><tbody>${obsRows}</tbody></table></div>
+ ${state.challenge?`<div class="tipbox"><b>אתגר כשירות AI שתועד:</b> ${esc(state.challenge)}</div>`:''}
+ <div class="tipbox amber"><strong>לשימוש אחראי:</strong> ״לא נבדק״ אינו אפס; הסכומים חלקיים עד מילוי כל הסעיפים. יש לאמת מול הטבלה הרשמית לפני דיווח ציון.</div>
+ <div class="summary-actions no-print"><button class="btn primary" id="backExam" type="button">חזרה לבחינה</button><button class="btn" id="copy" type="button">⧉ העתק סיכום</button><button class="btn" id="download" type="button">↓ שמור דוח TXT</button><button class="btn" id="backup" type="button">↓ גיבוי JSON</button><button class="btn" id="print" type="button">▤ הדפס / שמור PDF</button><label class="btn" for="restore">↑ ייבוא גיבוי</label><input id="restore" type="file" accept=".json,application/json" class="hidden"></div></div>`;
+ renderProfiles();bindScoreInputs($('summaryView'));bindFinalGrade();$('backExam').addEventListener('click',()=>changeView('stage'));
+ $('copy').addEventListener('click',async()=>{const t=textReport();try{await navigator.clipboard.writeText(t);notify('הסיכום הועתק');}catch(e){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();notify(ok?'הסיכום הועתק':'אפשר לשמור דוח TXT');}});
+ $('download').addEventListener('click',()=>downloadFile('דוח-הערכה-'+new Date().toISOString().slice(0,10)+'.txt','﻿'+textReport(),'text/plain;charset=utf-8'));
+ $('backup').addEventListener('click',()=>downloadFile('גיבוי-הערכת-פרויקט.json',JSON.stringify({...state,running:false},null,2),'application/json;charset=utf-8'));
+ $('print').addEventListener('click',()=>window.print());
+ $('restore').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const v=JSON.parse(await file.text());if(!v||!['3','5'].includes(v.track)||!v.official||!v.obs)throw Error('invalid');if(!confirm('לטעון גיבוי ולהחליף את נתוני ההערכה הנוכחיים?'))return;clearInterval(interval);interval=null;state=sanitize(v);persist();refreshForm();render();notify('הגיבוי נטען');}catch(err){notify('קובץ הגיבוי אינו תקין');}});}
+function downloadFile(name,data,type){const url=URL.createObjectURL(new Blob([data],{type}));const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1600);notify('הקובץ נשמר במכשיר');}
+
+function timerRender(){const el=$('clock');el.textContent=timefmt(state.elapsed);el.classList.toggle('warn',state.elapsed>1800);$('phaseName').textContent=`שלב ${state.stage+1}`;const r=STAGES[state.stage].mins*60-state.phaseElapsed[state.stage];$('phaseClock').textContent=r>=0?'נותרו בשלב '+timefmt(r):'חריגה בשלב '+timefmt(-r);$('timerToggle').textContent=state.running?'Ⅱ השהה':state.elapsed?'▶ המשך':'▶ התחלה';}
+function toggleTimer(){state.running=!state.running;if(state.running){interval=setInterval(()=>{state.elapsed++;state.phaseElapsed[state.stage]++;timerRender();if(state.elapsed%5===0)persist();},1000);}else{clearInterval(interval);interval=null;persist();}timerRender();}
+function refreshForm(){$('project').value=state.project;$('candidate').value=state.candidate;$('projectType').value=state.type;$('track').value=state.track;$('dTopicTop').value=state.dTopic;}
+function render(){renderNav();['stage','rubric','summary'].forEach(v=>{$(v+'View').classList.toggle('hidden',state.view!==v);if(state.view!==v)$(v+'View').innerHTML='';});if(state.view==='stage')renderStage();if(state.view==='rubric')renderRubric();if(state.view==='summary')renderSummary();timerRender();}
+function renderStatic(){$('heroI').innerHTML=ishape(null,'static',true);
+ $('legendI').innerHTML=['B','C','A','D','E'].map(k=>`<div class="legend-row">${ichip(k)}<div><b>${esc(IPARTS[k].name)}</b><span>${esc(IPARTS[k].desc)}</span></div></div>`).join('');
+ $('legendT').innerHTML=TORDER.map(t=>`<div class="legend-row">${tchip(t)}<div><span>${esc(TYPES[t].desc)}</span></div></div>`).join('');}
+function init(){renderStatic();refreshForm();
+ $('project').addEventListener('input',e=>{state.project=e.target.value;persist();});$('candidate').addEventListener('input',e=>{state.candidate=e.target.value;persist();});
+ $('dTopicTop').addEventListener('input',e=>{state.dTopic=e.target.value;persist();if($('dTopic'))$('dTopic').value=e.target.value;});
+ $('projectType').addEventListener('change',e=>{state.type=e.target.value;persist();render();});$('track').addEventListener('change',e=>{state.track=e.target.value;persist();render();});
+ $('navRubric').addEventListener('click',()=>changeView('rubric'));$('navSummary').addEventListener('click',()=>changeView('summary'));
+ $('timerToggle').addEventListener('click',toggleTimer);
+ $('timerReset').addEventListener('click',()=>{if(!confirm('לאפס את שעון הבחינה בלבד?'))return;clearInterval(interval);interval=null;state.running=false;state.elapsed=0;state.phaseElapsed=[0,0,0,0,0];persist();timerRender();});
+ $('clearAll').addEventListener('click',()=>{if(!confirm('למחוק את כל נתוני ההערכה שנשמרו במכשיר זה?'))return;clearInterval(interval);interval=null;state=blank();persist();refreshForm();render();notify('נתוני הבחינה נוקו');});
+ try{if(!localStorage.getItem(KEY))$('explain').open=true;}catch(e){}
+ render();}
+init();
+</script>
+</body>
+</html>
