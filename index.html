@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#152a45">
 <meta name="description" content="מגמת הנדסת אלקטרוניקה ומחשבים — סביבת עבודה לבוחן חיצוני בהנדסת אלקטרוניקה ומחשבים. מחוון מתוך צילומי חוזר המפמ״ר, בחינה מעשית וכשירות AI מתקדמת.">
 <title>מגמת הנדסת אלקטרוניקה ומחשבים | הערכת פרויקט גמר</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700;800;900&family=Assistant:wght@400;600;700&display=swap">
 <style>
 :root{--navy:#172b47;--navy2:#233f63;--text:#1d3045;--sub:#718296;--bg:#f2f6fa;--white:#fff;--line:#e2e9f0;--blue:#4354bb;--blue-soft:#edf0ff;--aqua:#0c968b;--aqua-soft:#e4f7f3;--amber:#9b622b;--amber-soft:#fff6e5;--red:#ae4855;--red-soft:#fff0f1;--shadow:0 14px 42px rgba(18,43,76,.06)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Segoe UI",sans-serif;font-size:15px;line-height:1.6}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #9bb6ff;outline-offset:2px}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(25px,3vw,38px);line-height:1.2;letter-spacing:-.5px;margin-bottom:8px}h2{font-size:23px;line-height:1.35;margin-bottom:7px;letter-spacing:-.2px}h3{font-size:17px;margin-bottom:8px}small{font-size:12px}.muted{color:var(--sub)}.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block;font-variant-numeric:tabular-nums}.nowrap{white-space:nowrap}.hidden{display:none!important}
@@ -20,11 +21,161 @@
 @media(max-width:480px){.hero h1{font-size:26px}.hero p{font-size:12px}.rubric-intro{padding:17px}.score-summary{gap:5px}.stat strong{font-size:19px}.stat span{font-size:10px}.rubric-group-header h3{font-size:14px}.stage-top{gap:8px}.step-actions{align-items:stretch}.actions-right{width:100%}.actions-right>*{flex:1}}
 @media print{body{background:white;color:black}.header,.hero,.sidebar,.form-card,.stage-card,.notice,.no-print,.footer,.toast{display:none!important}.wrap{padding:0;max-width:none}.workspace{display:block}.main{display:block}.report-card{display:block!important;border:0;box-shadow:none}.summary-pad{padding:0}.stat{background:white}.reporttable th{background:#f0f0f0!important}.reporttable td,.reporttable th{font-size:10px;padding:6px}.reporttable{min-width:0}.table-scroll{overflow:visible}.pill{background:transparent}.print-title{display:block!important}h1{font-size:22px}h2{font-size:19px}.score-summary{gap:7px}}
 </style>
+<style id="skin">
+/* ===== Modern skin (2026) - same look as mahvan.html; layout and logic unchanged ===== */
+:root{--navy:#0A1F4A;--navy2:#11306E;--text:#0D1B36;--sub:#4A5B78;--bg:#F1F6FC;--line:#D5E2F3;--blue:#1557C0;--blue-soft:#E8F0FC;--aqua:#0E9F8E;--aqua-soft:#E3F7F4;--cyan:#12C2E9;--cyan2:#7FE3F6;--shadow:0 10px 30px rgba(13,40,90,.08),0 2px 6px rgba(13,40,90,.05)}
+html,body{overflow-x:clip}
+body{font-family:'Assistant',Arial,"Segoe UI",sans-serif;font-size:16px;color:var(--text);background:radial-gradient(1100px 560px at 100% -8%,#DCEBFF 0%,rgba(220,235,255,0) 60%),radial-gradient(900px 520px at -12% 32%,#E1F7FC 0%,rgba(225,247,252,0) 55%),var(--bg);background-attachment:fixed}
+h1,h2,h3,.brand,.timer,.stat strong,.hero-stat b,.timepill b,.group-total,.section-kicker,.navicon{font-family:'Heebo',Arial,sans-serif}
+h2{font-weight:800;letter-spacing:-.3px}h3{font-weight:700}
+::selection{background:#BDEFFA}
+
+/* header */
+.header{position:sticky;top:0;z-index:30;background:rgba(10,31,74,.9);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid rgba(127,227,246,.18);box-shadow:0 8px 30px rgba(6,20,50,.22)}
+.brand{font-weight:800;letter-spacing:-.2px}
+.brand small{color:#9FB6D9;font-size:12px}
+.logo{background:linear-gradient(135deg,#0A1F4A,#11306E);border:1px solid rgba(127,227,246,.35);border-radius:14px;box-shadow:0 0 0 4px rgba(18,194,233,.12),0 8px 22px rgba(18,194,233,.3)}
+.logo svg{width:26px;height:26px;display:block}
+.header-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.hlink{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;font-size:14px;font-weight:700;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);transition:transform .2s,background .2s,box-shadow .2s;white-space:nowrap}
+.hlink:hover{background:rgba(255,255,255,.14);transform:translateY(-1px)}
+.hlink.primary{background:linear-gradient(135deg,#1557C0,#12C2E9);border-color:transparent;box-shadow:0 6px 18px rgba(18,194,233,.35)}
+.hlink.primary:hover{box-shadow:0 10px 26px rgba(18,194,233,.5)}
+
+/* hero */
+.wrap{padding-top:30px}
+.hero{border-radius:30px;background:linear-gradient(125deg,#0A1F4A 0%,#11306E 48%,#1557C0 100%);min-height:250px;padding:48px 52px;box-shadow:0 26px 60px rgba(10,31,74,.28);isolation:isolate}
+.hero:before{left:0;top:0;width:100%;height:100%;border:0;border-radius:0;box-shadow:none;z-index:-1;opacity:.9;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='none' stroke='%237FE3F6' stroke-opacity='.22' stroke-width='1.5'%3E%3Cpath d='M0 40h70l20 20h70M240 130h-60l-20-20H96M40 240v-56l20-20v-44M170 0v44l-20 20v34'/%3E%3C/g%3E%3Cg fill='%2312C2E9' fill-opacity='.55'%3E%3Ccircle cx='160' cy='60' r='3.2'/%3E%3Ccircle cx='96' cy='110' r='3.2'/%3E%3Ccircle cx='60' cy='120' r='3.2'/%3E%3Ccircle cx='150' cy='98' r='3.2'/%3E%3C/g%3E%3C/svg%3E");-webkit-mask-image:linear-gradient(to left,transparent 25%,#000 75%);mask-image:linear-gradient(to left,transparent 25%,#000 75%)}
+.hero:after{content:"";position:absolute;left:-140px;bottom:-200px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(18,194,233,.45),rgba(18,194,233,0) 65%);z-index:-1;pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(18,194,233,.14);border:1px solid rgba(127,227,246,.35);color:var(--cyan2);padding:6px 14px;border-radius:999px;font-size:13px;margin-bottom:16px}
+.hero h1{font-size:clamp(34px,4.4vw,60px);font-weight:900;letter-spacing:-1px;line-height:1.08;margin-bottom:16px}
+.hero h1 .grad{background:linear-gradient(90deg,#7FE3F6,#12C2E9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:17px;color:#CFE0F5;line-height:1.75}
+.hero-stats{gap:12px}
+.hero-stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:20px;padding:18px 22px;min-width:116px;transition:transform .2s}
+.hero-stat:hover{transform:translateY(-3px)}
+.hero-stat b{font-size:40px;font-weight:900;background:linear-gradient(180deg,#fff,#9FE9F8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-stat span{font-size:13px;color:#BFD3F0}
+
+/* notice */
+.notice{background:rgba(255,255,255,.8);border:1px solid var(--line);border-right:4px solid var(--cyan);border-radius:18px;box-shadow:var(--shadow);font-size:14.5px;color:#2B3F5E;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);margin:22px 0}
+.notice .mark{color:var(--blue)}
+
+/* cards */
+.workspace{gap:24px}
+.card{border-radius:24px;border:1px solid rgba(213,226,243,.95);box-shadow:var(--shadow);animation:skinUp .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes skinUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pad{padding:24px}
+.main{gap:22px}
+
+/* sidebar */
+.sidebar{top:100px}
+.section-kicker{color:var(--blue);font-size:12.5px;letter-spacing:1px}
+.navbtn{border-radius:14px;padding:11px 12px;color:var(--sub);transition:background .18s,box-shadow .18s}
+.navbtn:hover{background:#F1F6FD}
+.navbtn.active{background:linear-gradient(135deg,#E8F0FC,#E3F9FD);color:var(--navy);box-shadow:inset 0 0 0 1px #CFE0F7}
+.navicon{border-radius:12px;background:#EEF3FA;color:var(--sub);width:36px;height:36px}
+.navbtn.active .navicon{background:linear-gradient(135deg,#1557C0,#12C2E9);color:#fff;box-shadow:0 6px 14px rgba(21,87,192,.35)}
+.navbtn span.detail strong{font-size:14.5px}
+.navbtn span.detail small{font-size:12px}
+.navbtn .check{color:var(--cyan)}
+.progressline{font-size:13px}
+.progress{height:10px;background:#E6EEF8}
+.progress>div{background:linear-gradient(90deg,#1557C0,#12C2E9)}
+.timer{font-size:42px;font-weight:900;background:linear-gradient(180deg,#0A1F4A,#1557C0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.timer.warn{background:none;color:#DC2626;-webkit-text-fill-color:#DC2626}
+.timer-sub{font-size:13px}
+.helper{font-size:12.5px}
+
+/* controls */
+.btn{border-radius:12px;font-weight:700;font-size:14px;transition:transform .15s,background .18s,box-shadow .18s,border-color .18s}
+.btn:hover:not(:disabled){transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(135deg,#1557C0,#2B7BE4);border-color:transparent;box-shadow:0 6px 16px rgba(21,87,192,.3)}
+.btn.primary:hover{background:linear-gradient(135deg,#11306E,#1557C0)}
+.btn.teal{background:linear-gradient(135deg,#0E9F8E,#12C2E9);border-color:transparent;box-shadow:0 6px 16px rgba(14,159,142,.3)}
+.btn.sm{font-size:13px}
+.field span{font-size:13px;color:var(--sub)}
+.field input,.field select,.field textarea,.entry-input{border-radius:12px;border-color:var(--line);background:#FAFCFF;min-height:46px;transition:border-color .18s,box-shadow .18s}
+.field input:focus,.field select:focus,.field textarea:focus,.entry-input:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(18,194,233,.16);background:#fff}
+.pill{background:var(--aqua-soft);color:#0B7A6E;font-size:12.5px}
+.pill.blue{background:var(--blue-soft);color:var(--blue)}
+.panel-head p{font-size:14.5px}
+
+/* stage */
+.stage-top{background:linear-gradient(180deg,#F5F9FF,#fff);border-radius:24px 24px 0 0;padding:30px 32px 24px}
+.stage-top h2{font-size:30px}
+.stage-top p{font-size:15px}
+.stage-inner{padding:26px 32px 30px}
+.timepill{background:linear-gradient(135deg,#0A1F4A,#1557C0);border:0;border-radius:16px;box-shadow:0 8px 20px rgba(21,87,192,.3)}
+.timepill b{color:#fff;font-size:28px}
+.timepill small{color:#BFD3F0;font-size:12px}
+.roundicon{background:linear-gradient(135deg,#E8F0FC,#DDF7FC);color:var(--blue);border-radius:12px;width:36px;height:36px}
+.qgrid{gap:14px}
+.question{border-radius:18px;background:#F8FBFF;border-color:#E1EAF6;padding:18px;transition:border-color .18s,box-shadow .18s,transform .18s}
+.question:hover{border-color:#A9D2F7;box-shadow:0 8px 22px rgba(13,40,90,.08);transform:translateY(-2px)}
+.question .num{background:linear-gradient(135deg,#1557C0,#12C2E9);color:#fff;border-radius:10px;width:32px;height:32px;font-family:'Heebo',Arial,sans-serif}
+.question strong{font-size:15px}
+.question small{font-size:13px}
+.checkitem{border-radius:12px;font-size:13.5px;border-color:var(--line);transition:border-color .18s,background .18s}
+.checkitem:hover{border-color:#A9D2F7}
+.checkitem.checked{border-color:var(--cyan);background:#E6F9FD;color:#0B5E7A}
+.checkitem input{accent-color:#1557C0}
+.tipbox{border-radius:14px;border-right:4px solid var(--cyan);background:#EEF6FE;font-size:13.5px;color:#27456B}
+.lite{border-radius:16px;padding:16px}
+.lite strong{font-size:14px}
+.lite p{font-size:13px}
+.scale button{border-radius:10px;font-size:13px;transition:background .15s,border-color .15s}
+.scale button.selected{background:linear-gradient(135deg,#1557C0,#12C2E9);border-color:transparent;color:#fff}
+.scale small{font-size:10.5px}
+.challenge-box{border-radius:20px;border-color:#BDE9F3;background:linear-gradient(145deg,#F2FCFF,#EEF4FF)}
+.challenge-box h3{color:var(--blue)}
+.challenge-box p{font-size:14.5px}
+.suggested{border-radius:12px;font-size:13.5px}
+
+/* rubric + summary */
+.rubric-intro{padding:26px 30px}
+.stat{border-radius:18px;background:linear-gradient(180deg,#F8FBFF,#fff)}
+.stat strong{font-size:30px;font-weight:900;color:var(--blue)}
+.stat span{font-size:12.5px}
+.rubric-group{border-radius:20px;border-color:var(--line)}
+.rubric-group-header{background:linear-gradient(135deg,#F3F8FF,#EEFAFD)}
+.rubric-group-header h3{font-size:17px}
+.group-total{color:var(--blue)}
+.criterion strong{font-size:15px}
+.criterion .desc{font-size:13.5px}
+.criterion .question-cue{font-size:13px;color:var(--blue)}
+.criterion-controls label{font-size:12px}
+.stage-score{border:2px solid #BFD9F6;border-radius:20px;background:#F6FAFF}
+.stage-score-head{background:linear-gradient(135deg,#E8F0FC,#E3F9FD)}
+.stage-score-head h3{color:var(--navy)}
+.stage-score-head b{color:var(--blue)}
+.final-grade{border-radius:20px;border-color:#0E9F6E;background:linear-gradient(135deg,#F0FBF6,#F4FBFF)}
+.table-scroll{border-radius:18px;border-color:var(--line)}
+.reporttable{font-size:13px}
+.reporttable th{background:#EEF4FC;color:var(--navy2)}
+.summary-note{font-size:14.5px}
+.footer{font-size:13px;padding:8px 0}
+.toast{background:linear-gradient(135deg,#0A1F4A,#1557C0);border-radius:14px;font-size:14px}
+.credit{position:fixed;bottom:8px;left:8px;z-index:60;padding:4px 10px;border-radius:999px;background:rgba(15,23,42,.75);color:#fff;font:600 12px/1.4 Arial,sans-serif;pointer-events:none}
+
+@media(max-width:1100px){.hero{padding:40px 36px}}
+@media(max-width:760px){
+.header{padding:12px 14px;flex-wrap:wrap}.brand{font-size:16px}.brand small{display:none}.logo{width:36px;height:36px}
+.hlink{padding:8px 13px;font-size:12.5px}.hlink:not(.primary){display:none}
+.sidebar{top:auto}.wrap{padding-top:16px}
+.hero{padding:28px 20px;border-radius:22px;min-height:0}.hero p{font-size:15px}
+.pad{padding:18px}.stage-top{padding:20px}.stage-top h2{font-size:22px}.stage-inner{padding:19px}
+.timer{font-size:34px}.navicon{width:29px;height:29px}.navbtn span.detail strong{font-size:10.5px}
+.timepill b{font-size:20px}.stat strong{font-size:22px}}
+@media(max-width:480px){.hero h1{font-size:30px}.hero p{font-size:14px}.stat strong{font-size:19px}.rubric-intro{padding:17px}}
+@media print{.header,.credit{display:none!important}.card{animation:none;box-shadow:none}body{background:#fff}}
+</style>
+
 </head>
 <body>
-<header class="header"><div class="brand"><div class="logo" aria-hidden="true">⌁</div><div>מגמת הנדסת אלקטרוניקה ומחשבים<small>סביבת עזר לבוחן חיצוני · הערכת פרויקטי גמר</small></div></div><a class="header-note" href="mahvan.html" style="text-decoration:none;color:#fff;border-color:#12C2E9;background:#1557C0">⭐ המחוון החדש להערכת התלמיד</a><a class="header-note" href="megama.html" style="text-decoration:none;color:#fff;border-color:#48bdb0">✨ הגרסה החדשה: מודל I וסוגי הערכה</a></header>
+<header class="header"><div class="brand"><div class="logo" aria-hidden="true"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="7" width="18" height="18" rx="4" fill="#12C2E9"/><g fill="#12C2E9"><rect x="10" y="2" width="2" height="5"/><rect x="15" y="2" width="2" height="5"/><rect x="20" y="2" width="2" height="5"/><rect x="10" y="25" width="2" height="5"/><rect x="15" y="25" width="2" height="5"/><rect x="20" y="25" width="2" height="5"/><rect x="2" y="10" width="5" height="2"/><rect x="2" y="15" width="5" height="2"/><rect x="2" y="20" width="5" height="2"/><rect x="25" y="10" width="5" height="2"/><rect x="25" y="15" width="5" height="2"/><rect x="25" y="20" width="5" height="2"/></g><path d="M17.5 9.5 12 17h3.6L14 23l6-8h-3.6z" fill="#0A1F4A"/></svg></div><div>מגמת הנדסת אלקטרוניקה ומחשבים<small>סביבת עזר לבוחן חיצוני · הערכת פרויקטי גמר</small></div></div><nav class="header-links" aria-label="קישורים"><a class="hlink primary" href="mahvan.html">⭐ המחוון החדש להערכת התלמיד</a><a class="hlink" href="megama.html">✨ מודל I וסוגי הערכה</a></nav></header>
 <div class="wrap">
-<section class="hero"><div><div class="eyebrow">● סביבת הערכה מקצועית</div><h1>הערכה הנדסית. עם ראיות.</h1><p>הפעלת הפרויקט • הבנת חומרה וקוד • איתור תקלות ומדידות • שימוש ביקורתי ב־AI. מלווה את הבוחן שלב אחר שלב ומציג את המדדים המופיעים בצילומי מחוון המפמ״ר.</p></div><div class="hero-stats"><div class="hero-stat"><b>30</b><span>דקות מוצעות</span></div><div class="hero-stat"><b>3</b><span>מרכיבי מחוון</span></div><div class="hero-stat"><b>5</b><span>שלבי בחינה</span></div></div></section>
+<section class="hero"><div><div class="eyebrow">● סביבת הערכה מקצועית</div><h1>הערכה הנדסית. <span class="grad">עם ראיות.</span></h1><p>הפעלת הפרויקט • הבנת חומרה וקוד • איתור תקלות ומדידות • שימוש ביקורתי ב־AI. מלווה את הבוחן שלב אחר שלב ומציג את המדדים המופיעים בצילומי מחוון המפמ״ר.</p></div><div class="hero-stats"><div class="hero-stat"><b>30</b><span>דקות מוצעות</span></div><div class="hero-stat"><b>3</b><span>מרכיבי מחוון</span></div><div class="hero-stat"><b>5</b><span>שלבי בחינה</span></div></div></section>
 <div class="notice"><span class="mark" aria-hidden="true">ⓘ</span><div><strong>כלי עזר בלבד.</strong> האתר מתבסס על צילומי טבלת ההערכה שצירפת. משקלי הסעיפים נלקחו מהצילום; השאלות וחלוקת 30 הדקות הן הצעה מקצועית, ולא הוראה מחייבת מהחוזר. רק הגרסה הרשמית והעדכנית של המחוון קובעת.</div></div>
 <div class="workspace">
 <aside class="sidebar" aria-label="ניווט">
@@ -165,5 +316,6 @@ function render(){renderNav();$('stageView').classList.toggle('hidden',state.vie
 function init(){refreshForm();$('project').addEventListener('input',e=>{state.project=e.target.value;persist();});$('candidate').addEventListener('input',e=>{state.candidate=e.target.value;persist();});$('projectType').addEventListener('change',e=>{state.type=e.target.value;persist();render();});$('track').addEventListener('change',e=>{state.track=e.target.value;persist();render();});$('navRubric').addEventListener('click',()=>changeView('rubric'));$('navSummary').addEventListener('click',()=>changeView('summary'));$('timerToggle').addEventListener('click',toggleTimer);$('timerReset').addEventListener('click',()=>{if(!confirm('לאפס את שעון הבחינה בלבד?'))return;clearInterval(interval);interval=null;state.running=false;state.elapsed=0;state.phaseElapsed=[0,0,0,0,0];persist();timerRender();});$('clearAll').addEventListener('click',()=>{if(!confirm('למחוק את כל נתוני ההערכה שנשמרו במכשיר זה?'))return;clearInterval(interval);interval=null;state=blank();persist();refreshForm();render();notify('נתוני הבחינה נוקו');});render();}
 init();
 </script>
+<div class="credit">&copy; Abed Mihilia</div>
 </body>
 </html>
